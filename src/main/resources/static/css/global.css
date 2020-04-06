@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url("/fonts/Proxima-Nova.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BlackHawk';
+    src: url("/fonts/BlackHawk.ttf");
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Proxima Nova', sans-serif !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.5rem;
+    text-rendering: optimizeLegibility;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/***** Titles *****/
+
+h1 {
+    color: white;
+    font-size: 10rem;
+}
+
+@media only screen and (max-width: 959px) {
+    h1 {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 639px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+/***** ALERTS *****/
+
+.alerts {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 100px;
+}
+
+.animations {
+    animation-name: fadeInDown, fadeOutUp;
+    -webkit-animation-name: fadeInDown, fadeOutUp;
+
+    animation-duration: 1s, 1s;
+    -webkit-animation-duration: 1s, 1s;
+
+    animation-delay: 0s, 4s;
+    -webkit-animation-delay: 0s, 4s;
+}

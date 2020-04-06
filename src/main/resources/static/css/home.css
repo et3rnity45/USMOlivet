@@ -1,0 +1,77 @@
+/*** Section Bannière ***/
+
+.secBanner {
+    background-color: #0A0F1D;
+}
+
+.divBanner {
+    background-image: url("/uploads/img/backgrounds/banner-tt.webp");
+    background-position: center center;
+    background-color: #0A0F1D;
+    background-size: cover;
+    height: 100vh;
+}
+
+h1 {
+    font-family: BlackHawk, sans-serif !important;
+}
+
+
+/*** Section Discover ***/
+
+.secDiscover {
+    background-image:  url("/img/backgrounds/bg-losange.png");
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*** Section News ***/
+
+.secNews {
+    background-color: #F4F4F4;
+}
+
+.uk-label {
+    background-color: rgb(240, 30, 30);
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.uk-button-text::before {
+    border-bottom: 1px solid rgb(240, 30, 30);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/*** MEDIA QUERIES ***/
+
+@media only screen and (max-width: 959px) {
+
+    .divBanner {
+        height: 300px;
+    }
+
+}
+
+@media only screen and (max-width: 639px) {
+
+    .divBanner {
+        height: 200px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+}

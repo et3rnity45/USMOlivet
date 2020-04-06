@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
+<head th:fragment="head(title, links, scripts)">
+    <!-- METAS -->
+    <meta charset="UTF-8">
+    <title th:replace="${title}">USM Olivet TT</title>
+    <meta content="Site de l'USM Olivet TT" name="description">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link rel="icon" href="/img/logo/olivet-tt-black.png">
+    <!-- UI KIT -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css" />
+    <!-- FONT FAMILY -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,400&display=swap">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/adminLayout.css">
+    <th:block th:replace="${links}" />
+    <th:block th:replace="${scripts}" />
+</head>
+
+<body>
+    <header th:fragment="top" uk-sticky class="uk-background-secondary uk-light">
+        <div class="uk-container uk-container-expand">
+            <nav uk-navbar>
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #sidebar">
+                    <a href="/" class="uk-navbar-item uk-logo">Retour au site</a>
+                </div>
+                <div class="uk-navbar-right uk-light">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="/logout">Déconnexion</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div id="sidebar" uk-offcanvas="overlay: true">
+            <div class="uk-offcanvas-bar">
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                    <li class="uk-nav-header">Administration</li>
+                    <li class="uk-nav-divider"></li>
+                    <li class="uk-active"><a href="/admin"><span class="uk-margin-small-right" uk-icon="tv"></span>Dashboard</a></li>
+                    <li><a href="/admin/user"><span class="uk-margin-small-right" uk-icon="users"></span>Utilisateurs</a></li>
+                    <li><a href="/admin/article"><span class="uk-margin-small-right" uk-icon="album"></span>Articles</a></li>
+                    <li><a href="/admin/partenaires"><span class="uk-margin-small-right" uk-icon="social"></span>Partenaires</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div th:fragment="script">
+        <!-- UI KIT Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
+        <!--/*@thymesVar id="success" type="java"*/-->
+        <script th:if="${success}">
+            /*<![CDATA[*/
+            const message = '[[${success}]]';
+            window.onload = function() {
+                UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> ' + message, pos: 'top-right', status: 'success'});
+            };
+            /*]]>*/
+        </script>
+        <!--/*@thymesVar id="error" type="java"*/-->
+        <script th:if="${error}">
+            /*<![CDATA[*/
+            const message = '[[${error}]]';
+            window.onload = function() {
+                UIkit.notification({message: '<span uk-icon=\'icon: ban\'></span> ' + message, pos: 'top-right', status: 'danger'});
+            };
+            /*]]>*/
+        </script>
+    </div>
+
+</body>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+    <head th:replace="/fragments/clientLayout.html :: head(~{::title},~{::link}, ~{})">
+        <title th:text="|Olivet TT - ${article.title}|">Olivet TT</title>
+        <link rel="stylesheet" href="/css/article.css">
+    </head>
+
+    <body>
+
+        <header th:replace="/fragments/clientLayout.html :: top"></header>
+
+        <section>
+
+        </section>
+
+        <footer th:replace="/fragments/clientLayout.html :: bottom"></footer>
+
+        <div th:replace="/fragments/clientLayout.html :: script"></div>
+
+    </body>
+</html>

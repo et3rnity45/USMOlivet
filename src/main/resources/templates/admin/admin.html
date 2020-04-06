@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head th:replace="/fragments/adminLayout.html :: head(~{::title},~{::link}, ~{})">
+    <title>Olivet TT - Site de la section Tennis de Table d'Olivet</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+
+<header th:replace="/fragments/adminLayout.html :: top"></header>
+
+<div th:replace="/fragments/adminLayout.html :: script"></div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+    <head th:replace="/fragments/clientLayout.html :: head(~{::title},~{::link}, ~{})">
+        <title>Olivet TT - Site de la section Tennis de Table d'Olivet</title>
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+
+    <body>
+
+        <header th:replace="/fragments/clientLayout.html :: top"></header>
+
+        <section class="secBanner">
+            <div class="divBanner uk-flex uk-flex-middle uk-flex-center">
+                <h1 class="uk-animation-scale-up">USM Olivet TT</h1>
+            </div>
+        </section>
+
+        <section class="secDiscover">
+            <div class="uk-container uk-container-large uk-container-center uk-height-1-1 uk-flex uk-flex-middle">
+                <div class="uk-margin-large-top uk-margin-large-bottom uk-width-1-1 uk-child-width-expand@s uk-text-center" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-tile; delay: 150; offset-top: -200;">
+                    <a href="#" uk-toggle="target: #icon-1; mode: hover; animation: uk-animation-slide-left;">
+                        <div class="uk-tile uk-tile-default uk-border-rounded uk-box-shadow-medium">
+                            <p class="uk-h4">Entrainements<span class="uk-margin-small-left" id="icon-1" hidden uk-icon="icon: arrow-right"></span></p>
+                        </div>
+                    </a>
+                    <a href="#" uk-toggle="target: #icon-2; mode: hover; animation: uk-animation-slide-left;">
+                        <div class="uk-tile uk-tile-default uk-border-rounded uk-box-shadow-medium">
+                            <p class="uk-h4">Stages<span class="uk-margin-small-left" id="icon-2" hidden uk-icon="icon: arrow-right"></span></p>
+                        </div>
+                    </a>
+                    <a href="#" uk-toggle="target: #icon-3; mode: hover; animation: uk-animation-slide-left;">
+                        <div class="uk-tile uk-tile-default uk-border-rounded uk-box-shadow-medium">
+                            <p class="uk-h4">Family Ping<span class="uk-margin-small-left" id="icon-3" hidden uk-icon="icon: arrow-right"></span></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="uk-section secNews">
+            <div class="uk-container uk-container-large">
+                <h2>Actualités du club</h2>
+                <hr class="uk-margin-medium">
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@m uk-margin" uk-grid uk-scrollspy="cls: uk-animation-slide-left; offset-top: -200;">
+                    <div class="uk-cover-container uk-card-media-left">
+                        <a th:href="@{|/article/${articles[0].id}|}">
+                            <div class="uk-card-badge uk-label" th:text="${articles[0].label}">Label</div>
+                            <img th:src="${articles[0].picturePath}" th:alt="|Visuel article: ${articles[0].title}|" uk-cover>
+                            <canvas width="600" height="400"></canvas>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title" th:text="${articles[0].title}">Title</h3>
+                            <p th:text="${#strings.abbreviate(articles[0].content, 400)}">Text</p>
+                        </div>
+                        <div class="uk-card-footer">
+                            <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[0].date, 'dd MMM yyyy')}">01 Jan. 2020</span>
+                            <a class="uk-float-right uk-button uk-button-text" th:href="@{|/article/${articles[0].id}|}">
+                                Lire la suite
+                                <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@m uk-margin" uk-scrollspy="cls: uk-animation-slide-right; offset-top: -200;" uk-grid>
+                    <div class="uk-cover-container uk-card-media-right uk-flex-last@m">
+                        <a th:href="@{|/article/${articles[1].id}|}">
+                            <div class="uk-card-badge uk-label" th:text="${articles[1].label}">Label</div>
+                            <img th:src="${articles[1].picturePath}" th:alt="${articles[1].title}" uk-cover>
+                            <canvas width="600" height="400"></canvas>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title" th:text="${articles[1].title}">Title</h3>
+                            <p th:text="${#strings.abbreviate(articles[1].content, 400)}">Text</p>
+                        </div>
+                        <div class="uk-card-footer">
+                            <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[1].date, 'dd MMM yyyy')}">01 Jan. 2020</span>
+                            <a class="uk-float-right uk-button uk-button-text" th:href="@{|/article/${articles[1].id}|}">
+                                Lire la suite
+                                <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a class="uk-align-right uk-button uk-button-text" href="/articles">
+                    Voir plus d'actualités
+                    <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
+                </a>
+            </div>
+        </section>
+
+        <footer th:replace="/fragments/clientLayout.html :: bottom"></footer>
+
+        <div th:replace="/fragments/clientLayout.html :: script"></div>
+
+    </body>
+</html>

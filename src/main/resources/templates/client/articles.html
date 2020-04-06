@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+    <head th:replace="/fragments/clientLayout.html :: head(~{::title},~{::link}, ~{})">
+        <title>Olivet TT - Articles</title>
+        <link rel="stylesheet" href="/css/articles.css">
+    </head>
+
+    <body>
+
+        <header th:replace="/fragments/clientLayout.html :: top"></header>
+
+        <section class="uk-section uk-flex uk-flex-column uk-flex-center uk-flex-middle">
+            <h1 class="uk-padding-large">Actualités du Club</h1>
+            <div class="uk-container uk-container-medium uk-child-width-1-2@m" uk-grid>
+                <article th:each="article : ${articles}">
+                    <a th:href="@{|/article/${article.id}|}" class="uk-card uk-card-default uk-link-toggle">
+                        <div class="uk-card-media-top">
+                            <img th:src="${article.picturePath}" th:alt="${article.title}">
+                        </div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title"><span class="uk-link-heading" th:text="${article.title}">Title</span></h3>
+                            <p th:text="${#strings.abbreviate(article.content, 200)}">Text</p>
+                            <span class="uk-float-right uk-text-muted" th:text="${#dates.format(article.date, 'dd MMM yyyy')}">01 Jan. 2020</span>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <footer th:replace="/fragments/clientLayout.html :: bottom"></footer>
+
+        <div th:replace="/fragments/clientLayout.html :: script"></div>
+
+    </body>
+</html>

@@ -1,0 +1,22 @@
+.secError {
+    background-color: #0A0F1D;
+}
+
+.divError {
+    background-image: url("/uploads/img/backgrounds/table-tennis-error.webp");
+    background-position: center center;
+    background-color: #0A0F1D;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.errorMessage {
+    background-color: rgba(40, 40, 40, 0.7);
+    padding: 80px;
+}
+
+h2 {
+    font-size: 4rem;
+    color: #F4F4F4;
+}

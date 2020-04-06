@@ -1,0 +1,28 @@
+body {
+    background-image: url("/uploads/img/backgrounds/colored-background.webp");
+    background-color: #0A0F1D;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+article {
+    width: 50%;
+    border: solid #EEEEEE;
+    background-color: #F4F4F4;
+    padding: 2.5rem;
+}
+
+.uk-link-toggle:hover .uk-link-heading {
+    opacity: 60%;
+    color: inherit;
+}
+
+p {
+    text-align: justify;
+    margin: 0 0 2rem 0;
+}
