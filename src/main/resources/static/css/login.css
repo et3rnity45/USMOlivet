@@ -1,3 +1,25 @@
 .uk-button {
-    border: solid 1px #C00000 !important;
+    background-color: #ff4652;
+    color: #fff;
+}
+
+.secPartners, hr {
+    display: none;
+}
+
+.ol-header {
+    background-color: #0A0F1D;
+    position: relative;
+}
+
+section {
+    height: calc(100vh - 80px - 142px);
+}
+
+@media only screen and (max-width: 639px) {
+
+    section {
+        height: calc(100vh - 80px - 222px);
+    }
+
 }

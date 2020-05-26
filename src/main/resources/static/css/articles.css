@@ -1,28 +1,25 @@
-body {
-    background-image: url("/uploads/img/backgrounds/colored-background.webp");
+.ol-header {
     background-color: #0A0F1D;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
+    position: relative;
 }
 
-h1 {
-    font-size: 4rem;
+.uk-card {
+    border-radius: 8px;
 }
 
-article {
-    width: 50%;
-    border: solid #EEEEEE;
-    background-color: #F4F4F4;
-    padding: 2.5rem;
+.uk-card-media-top, img {
+    border-radius: 8px 8px 0 0;
 }
 
-.uk-link-toggle:hover .uk-link-heading {
-    opacity: 60%;
-    color: inherit;
+.uk-card-badge {
+    top: 15px;
+    right: 15px;
 }
 
-p {
-    text-align: justify;
-    margin: 0 0 2rem 0;
+.uk-label {
+    background-color: #ff4652;
+}
+
+.uk-subnav-pill > .uk-active > a {
+    background-color: #ff4652;
 }

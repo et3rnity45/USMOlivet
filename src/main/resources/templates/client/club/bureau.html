@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/clientLayout.html :: head(~{::title},~{::link}, ~{}, ~{::main})">
+<head>
+    <title>Bureau du club - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/bureau.css">
+</head>
+<body>
+
+<main>
+    <section class="uk-section uk-section-default uk-section-large">
+        <div class="uk-container uk-container-large">
+            <h2 class="uk-heading-small uk-text-center uk-margin-large-bottom">Bureau du Club</h2>
+            <div class="uk-grid-small uk-flex-center uk-child-width-auto@s" uk-scrollspy="target: > div; cls: uk-animation-scale-up" uk-grid>
+                <div class="uk-text-center" th:each="member : ${members}">
+                    <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                        <div class="uk-cover-container">
+                            <img th:src="${member.picturePath}" th:alt="|${member.firstname} ${member.lastname}|" height="300" uk-img>
+                        </div>
+                        <div class="uk-overlay-primary uk-transition-fade uk-position-cover"></div>
+                        <div class="uk-position-center">
+                            <div class="uk-transition-slide-top-small">
+                                <h2 class="uk-margin-remove" th:text="|${member.firstname} ${member.lastname}|">John Doe</h2>
+                            </div>
+                            <div class="uk-transition-slide-bottom-small">
+                                <h4 class="uk-margin-remove" th:text="${member.role}">Membre du bureau</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

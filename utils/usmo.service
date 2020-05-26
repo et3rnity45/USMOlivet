@@ -1,0 +1,15 @@
+[Unit]
+Description=USM Olivet TT Web app
+After=syslog.target
+
+[Service]
+WorkingDirectory=/home/usmo/
+Type=simple
+ExecStart=/bin/bash usmo.sh start
+SuccessExitStatus=200
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

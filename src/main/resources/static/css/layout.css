@@ -1,6 +1,5 @@
 /***** HEADER *****/
-
-header {
+.ol-header {
     position: absolute;
     top: 0;
     z-index: 10;
@@ -8,11 +7,29 @@ header {
 }
 
 .uk-navbar-container:not(.uk-navbar-transparent) {
-    background-color: #0A0F1D;
+    background-color: #fff;
+}
+
+.uk-navbar-sticky, .uk-navbar-dropdown {
+    box-shadow: 2px 15px 50px rgba(41,44,61,.1);
+}
+
+[class*="uk-dropdown-bottom"] {
+    margin-top: 0px;
 }
 
 .nav-logo {
     height: 64px;
+}
+
+.uk-nav > li > a {
+    text-transform: uppercase;
+}
+
+.uk-nav > li > a:focus,
+.uk-nav > li > a:hover {
+    color: #ff4652;
+    background-color: transparent;
 }
 
 .nav-link {
@@ -25,9 +42,9 @@ header {
     position: absolute;
     left: 15px;
     right: calc(102% - 15px);
-    bottom: 20px;
+    bottom: 25px;
     height: 1px;
-    background-color: currentColor;
+    background-color: #ff4652;
     transition: .3s ease-in-out;
     transition-property: right;
 }
@@ -40,6 +57,7 @@ header {
     background-color: #0A0F1D;
 }
 
+/***** FOOTER *****/
 footer {
     background-color: #0A0F1D;
 }

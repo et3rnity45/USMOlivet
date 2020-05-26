@@ -13,9 +13,6 @@ public class HomeController {
     @Autowired
     private ArticleRepository articleRepository;
 
-    @Autowired
-    private SponsorRepository sponsorRepository;
-
     @GetMapping("/")
     public String toHome(Model model) {
         model.addAttribute("articles", articleRepository.findTop2ByOrderByDateDesc());

@@ -20,9 +20,17 @@
 html {
     scroll-behavior: smooth;
     word-wrap: break-word;
-    font-size: 15px;
-    line-height: 1.5rem;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    color: #555;
     text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background:#ff3c48;
+    color:#fff;
+    text-shadow:none
 }
 
 a, a:hover {
@@ -30,23 +38,30 @@ a, a:hover {
     color: inherit;
 }
 
-/***** Titles *****/
+/***** Headings *****/
 
 h1 {
-    color: white;
-    font-size: 10rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-@media only screen and (max-width: 959px) {
-    h1 {
-        font-size: 5rem;
-    }
+.uk-heading-bullet::before {
+    margin-right: calc(3px + .2em);
+    border-left: calc(3px + .1em) solid #ff4652;
 }
 
-@media only screen and (max-width: 639px) {
-    h1 {
-        font-size: 3rem;
-    }
+/***** Header *****/
+
+.ol-header {
+    position: relative;
+}
+
+.ol-header-overlay {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    right: 0;
 }
 
 /***** ALERTS *****/

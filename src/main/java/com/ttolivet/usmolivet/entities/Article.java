@@ -30,7 +30,6 @@ public class Article {
     @Column(columnDefinition = "TEXT")
     private String content;
 
-
     public Article() {}
 
     public Long getId() {

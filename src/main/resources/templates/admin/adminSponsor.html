@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{::link}, ~{}, ~{::section})">
+<head>
+    <title>Gestion des Partenaires - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/adminTable.css">
+</head>
+<body>
+
+<section class="uk-section">
+    <div class="uk-container">
+        <h2>Gestion des Partenaires</h2>
+        <a class="uk-flex uk-flex-middle" th:href="@{/admin/sponsor/update}">
+            <span class="uk-margin-small-right" uk-icon="icon: plus; ratio: 0.7"></span>
+            Ajouter un Partenaire
+        </a>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th>Sponsor</th>
+                <th>Logo</th>
+                <th>Lien du site</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sponsor : ${sponsors}">
+                <td th:text="${sponsor.name}"></td>
+                <td><img th:src="${sponsor.picturePathBis}" th:alt="|Logo ${sponsor.name}|" /></td>
+                <td><a th:href="${sponsor.siteUrl}" target="_blank" th:text="${sponsor.siteUrl}"></a></td>
+                <td>
+                    <a th:href="@{/admin/sponsor/update(id=${sponsor.id})}" uk-icon="icon: pencil" class="uk-margin-small-right"></a>
+                    <a th:href="@{|/admin/sponsor/delete/${sponsor.id}|}" uk-icon="icon: trash"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+</body>
+</html>

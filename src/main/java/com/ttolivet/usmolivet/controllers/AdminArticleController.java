@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.io.File;
 import java.util.Optional;
 
 @Controller
@@ -89,7 +88,7 @@ public class AdminArticleController {
         if (id != null) {
             redirect.addFlashAttribute("success", "L'article à bien été mis à jour.");
         } else {
-            redirect.addFlashAttribute("success", "L'article à bien été modifié.");
+            redirect.addFlashAttribute("success", "L'article à bien été ajouté.");
         }
         return "redirect:/admin/article";
     }
@@ -103,6 +102,5 @@ public class AdminArticleController {
         redirect.addFlashAttribute("success", "L'article à bien été supprimé.");
         return "redirect:/admin/article";
     }
-
 
 }

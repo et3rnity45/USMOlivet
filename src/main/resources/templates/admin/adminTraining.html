@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{::link}, ~{}, ~{::section})">
+<head>
+    <title>Gestion des Entrainements - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/adminTable.css">
+</head>
+<body>
+
+<section class="uk-section">
+    <div class="uk-container">
+        <h2>Gestion du Planning</h2>
+    </div>
+    <div class="uk-container uk-margin-medium">
+        <h2>Gestion des Entraineurs</h2>
+        <a class="uk-flex uk-flex-middle" th:href="@{/admin/trainer/update}">
+            <span class="uk-margin-small-right" uk-icon="icon: plus; ratio: 0.7"></span>
+            Ajouter un Entraineur
+        </a>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Photo</th>
+                <th>Informations supplémentaires</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="trainer : ${trainers}">
+                <td th:text="${trainer.firstname}"></td>
+                <td th:text="${trainer.lastname}"></td>
+                <td><img th:src="${trainer.picturePath}" th:alt="|Photo ${trainer.firstname} ${trainer.lastname}|" /></td>
+                <td th:text="${#strings.abbreviate(trainer.informations, 400)}"></td>
+                <td>
+                    <a th:href="@{/admin/trainer/update(id=${trainer.id})}" uk-icon="icon: pencil" class="uk-margin-small-right"></a>
+                    <a th:href="@{|/admin/trainer/delete/${trainer.id}|}" uk-icon="icon: trash"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+</body>
+</html>

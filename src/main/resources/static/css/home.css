@@ -12,9 +12,28 @@
     height: 100vh;
 }
 
+/***** Title *****/
+
 h1 {
-    font-family: BlackHawk, sans-serif !important;
+    font-family: Raleway, sans-serif !important;
+    font-weight: 700;
+    font-size: 6rem;
+    text-align: center;
+    color: white;
 }
+
+@media only screen and (max-width: 959px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (max-width: 639px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
 
 
 /*** Section Discover ***/
@@ -26,6 +45,18 @@ h1 {
     background-size: cover;
 }
 
+.uk-tile {
+    transition: all 500ms;
+}
+
+.linkDiscover:hover .uk-tile {
+    background-color: #0A0F1D;
+}
+
+.linkDiscover:hover p {
+    color: #fff;
+}
+
 /*** Section News ***/
 
 .secNews {
@@ -33,7 +64,7 @@ h1 {
 }
 
 .uk-label {
-    background-color: rgb(240, 30, 30);
+    background-color: #ff4652;
 }
 
 h2 {
@@ -43,7 +74,7 @@ h2 {
 }
 
 .uk-button-text::before {
-    border-bottom: 1px solid rgb(240, 30, 30);
+    border-bottom: 1px solid #ff4652;
 }
 
 .card-content {
@@ -58,7 +89,7 @@ h2 {
 @media only screen and (max-width: 959px) {
 
     .divBanner {
-        height: 300px;
+        height: 400px;
     }
 
 }

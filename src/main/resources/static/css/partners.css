@@ -1,0 +1,36 @@
+.ol-header {
+    background-color: #0A0F1D;
+    position: relative;
+}
+
+.divSponsor {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cadreImg {
+    height: 350px;
+    width: 350px;
+    background-color: #0A0F1D;
+}
+
+.cadreImg:nth-child(8n-6), .cadreImg:nth-child(8n-4), .cadreImg:nth-child(8n-3), .cadreImg:nth-child(8n-1) {
+    background-color: #F4F4F4;
+}
+
+.cadreImg:hover {
+    border-bottom: solid 3px rgb(240, 30, 30);
+}
+
+.cadreImg:hover img {
+    transform: scale(1.2);
+    transition: all 1000ms ease;
+}
+
+.imgSponsor {
+    max-width: 40%;
+    transition: all 1000ms;
+}

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
-<head th:fragment="head(title, links, scripts)">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, links, scripts, content)">
+<head>
     <!-- METAS -->
     <meta charset="UTF-8">
     <title th:replace="${title}">USM Olivet TT</title>
     <meta content="Site de l'USM Olivet TT" name="description">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <link rel="icon" href="/img/logo/olivet-tt-black.png">
-    <!-- UI KIT -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css" />
+    <!-- UI KIT + FONT AWESOME -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <!-- FONT FAMILY -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,900&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,400&display=swap">
@@ -20,57 +21,92 @@
 </head>
 
 <body>
-    <header th:fragment="top" uk-sticky class="uk-background-secondary uk-light">
-        <div class="uk-container uk-container-expand">
-            <nav uk-navbar>
-                <div class="uk-navbar-left">
-                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #sidebar">
-                    <a href="/" class="uk-navbar-item uk-logo">Retour au site</a>
-                </div>
-                <div class="uk-navbar-right uk-light">
-                    <ul class="uk-navbar-nav">
-                        <li class="uk-active"><a href="/logout">Déconnexion</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div id="sidebar" uk-offcanvas="overlay: true">
-            <div class="uk-offcanvas-bar">
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
-                <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-                    <li class="uk-nav-header">Administration</li>
-                    <li class="uk-nav-divider"></li>
-                    <li class="uk-active"><a href="/admin"><span class="uk-margin-small-right" uk-icon="tv"></span>Dashboard</a></li>
-                    <li><a href="/admin/user"><span class="uk-margin-small-right" uk-icon="users"></span>Utilisateurs</a></li>
-                    <li><a href="/admin/article"><span class="uk-margin-small-right" uk-icon="album"></span>Articles</a></li>
-                    <li><a href="/admin/partenaires"><span class="uk-margin-small-right" uk-icon="social"></span>Partenaires</a></li>
+<!--HEADER-->
+<header id="top-head" class="uk-position-fixed">
+    <div class="uk-container uk-container-expand uk-background-primary">
+        <nav class="uk-navbar uk-light" data-uk-navbar="mode:click; duration: 250">
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li><a href="/" data-uk-icon="icon: home" title="Accueil" data-uk-tooltip></a></li>
+                    <li><a href="/user" data-uk-icon="icon: user" title="Compte" data-uk-tooltip></a></li>
+                    <li><a href="/logout" data-uk-icon="icon: sign-out" title="Déconnexion" data-uk-tooltip></a></li>
                 </ul>
             </div>
-        </div>
-    </header>
-
-    <div th:fragment="script">
-        <!-- UI KIT Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
-        <!--/*@thymesVar id="success" type="java"*/-->
-        <script th:if="${success}">
-            /*<![CDATA[*/
-            const message = '[[${success}]]';
-            window.onload = function() {
-                UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> ' + message, pos: 'top-right', status: 'success'});
-            };
-            /*]]>*/
-        </script>
-        <!--/*@thymesVar id="error" type="java"*/-->
-        <script th:if="${error}">
-            /*<![CDATA[*/
-            const message = '[[${error}]]';
-            window.onload = function() {
-                UIkit.notification({message: '<span uk-icon=\'icon: ban\'></span> ' + message, pos: 'top-right', status: 'danger'});
-            };
-            /*]]>*/
-        </script>
+        </nav>
+    </div>
+</header>
+<!--/HEADER-->
+<!-- LEFT BAR -->
+<aside id="left-col" class="uk-light">
+    <div class="left-logo uk-text-center">
+        <p>Administration</p>
+    </div>
+    <div class="left-content-box content-box-dark">
+        <img src="/img/svg/user.svg" alt="Account" class="uk-border-circle profile-img">
+        <h4 class="uk-text-center uk-margin-remove-vertical text-light">Quentin Liger</h4>
     </div>
 
+    <div class="left-nav-wrap">
+        <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+            <li class="uk-nav-header">ACTIONS</li>
+            <li><a href="/admin/user"><span data-uk-icon="icon: users" class="uk-margin-small-right"></span>Utilisateurs</a></li>
+            <li><a href="/admin/article"><span data-uk-icon="icon: comment" class="uk-margin-small-right"></span>Articles</a></li>
+            <li><a href="/admin/sponsor"><span data-uk-icon="icon: social" class="uk-margin-small-right"></span>Partenaires</a></li>
+            <li class="uk-parent"><a href="#"><span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Sportif</a>
+                <ul class="uk-nav-sub">
+                    <li><a title="Entrainement" href="/admin/trainer">Entrainement</a></li>
+                    <li><a title="Stages" href="#">Stages</a></li>
+                    <li><a title="Compétitions" href="#">Compétitions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="bar-bottom">
+        <ul class="uk-subnav uk-flex uk-flex-center uk-child-width-1-5" data-uk-grid>
+            <li><a href="/" class="uk-icon-link" data-uk-icon="icon: home" title="Accueil" data-uk-tooltip></a></li>
+            <li><a href="/user" class="uk-icon-link" data-uk-icon="icon: user" title="Compte" data-uk-tooltip></a></li>
+            <li><a href="/logout" class="uk-icon-link" data-uk-tooltip="Déconnexion" data-uk-icon="icon: sign-out"></a></li>
+        </ul>
+    </div>
+</aside>
+<!-- /LEFT BAR -->
+<!-- CONTENT -->
+<div id="mainContent" data-uk-height-viewport="expand: true">
+    <div class="uk-container uk-container-expand">
+
+        <section th:replace="${content}">
+
+        </section>
+
+        <footer class="uk-section uk-section-small uk-text-center">
+            <hr>
+            <p class="uk-text-small uk-text-center">Copyright 2020 - USM Olivet TT</p>
+        </footer>
+    </div>
+</div>
+<!-- /CONTENT -->
+
+<!-- UI KIT Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+<!--/*@thymesVar id="success" type="java"*/-->
+<script th:if="${success}">
+    /*<![CDATA[*/
+    const message = '[[${success}]]';
+    window.onload = function() {
+        UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> ' + message, pos: 'top-right', status: 'success'});
+    };
+    /*]]>*/
+</script>
+<!--/*@thymesVar id="error" type="java"*/-->
+<script th:if="${error}">
+    /*<![CDATA[*/
+    const message = '[[${error}]]';
+    window.onload = function() {
+        UIkit.notification({message: '<span uk-icon=\'icon: ban\'></span> ' + message, pos: 'top-right', status: 'danger'});
+    };
+    /*]]>*/
+</script>
+
 </body>
+</html>

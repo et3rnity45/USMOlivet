@@ -3,7 +3,6 @@ package com.ttolivet.usmolivet.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "sponsor")
 public class Sponsor {
 
     @Id
@@ -13,8 +12,11 @@ public class Sponsor {
     @Column(length = 70)
     private String name;
 
-    @Column(length = 50)
+    @Column(length = 100)
     private String picturePath;
+
+    @Column(length = 100)
+    private String picturePathBis;
 
     @Column(length = 100)
     private String siteUrl;
@@ -44,6 +46,14 @@ public class Sponsor {
 
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
+    }
+
+    public String getPicturePathBis() {
+        return picturePathBis;
+    }
+
+    public void setPicturePathBis(String picturePathBis) {
+        this.picturePathBis = picturePathBis;
     }
 
     public String getSiteUrl() {

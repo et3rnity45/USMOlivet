@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr">
-    <head th:replace="/fragments/clientLayout.html :: head(~{::title},~{::link}, ~{})">
-        <title>USM Olivet TT - Not Found</title>
-        <link rel="stylesheet" href="/css/error.css">
-    </head>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/clientLayout.html :: head(~{::title},~{::link}, ~{}, ~{::main})">
+<head>
+    <title>404 - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/error.css">
+</head>
+<body>
 
-    <body>
-        <header th:replace="/fragments/clientLayout.html :: top"></header>
-
-        <section class="secError uk-light">
-            <div class="divError uk-flex uk-flex-column uk-flex-middle uk-flex-center">
-                <div class="errorMessage uk-flex uk-flex-column uk-flex-center">
-                    <h2>404 (Page Not Found)</h2>
-                    <a href="/" class="uk-button uk-button-default uk-button-large">Revenir au site</a>
-                </div>
+<main>
+    <section class="secError">
+        <div class="divError uk-flex uk-flex-column uk-flex-middle uk-flex-center">
+            <div class="errorMessage uk-text-center uk-border-rounded">
+                <h2>404 Not Found</h2>
+                <p>Désolé mais la page que vous recherchiez n'a pas été trouvée.</p>
+                <p><a onclick="history.go(-1)">Revenir au site</a></p>
             </div>
-        </section>
+        </div>
+    </section>
+</main>
 
-        <div th:replace="/fragments/clientLayout.html :: script"></div>
-    </body>
+</body>
 </html>

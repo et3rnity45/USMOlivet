@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr">
-    <head th:replace="/fragments/clientLayout.html :: head(~{::title},~{::link}, ~{})">
-        <title th:text="|Olivet TT - ${article.title}|">Olivet TT</title>
-        <link rel="stylesheet" href="/css/article.css">
-    </head>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/clientLayout.html :: head(~{::title},~{::link}, ~{}, ~{::main})">
+<head>
+    <title th:text="|${article.title} - Olivet TT|">Olivet TT</title>
+    <link rel="stylesheet" href="/css/article.css">
+</head>
+<body>
 
-    <body>
+<main>
+    <section class="uk-section uk-section-default uk-section-large">
+        <div class="uk-container uk-container-large">
+            
+        </div>
+    </section>
+</main>
 
-        <header th:replace="/fragments/clientLayout.html :: top"></header>
-
-        <section>
-
-        </section>
-
-        <footer th:replace="/fragments/clientLayout.html :: bottom"></footer>
-
-        <div th:replace="/fragments/clientLayout.html :: script"></div>
-
-    </body>
+</body>
 </html>

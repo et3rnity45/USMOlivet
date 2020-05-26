@@ -1,50 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr">
-<head th:replace="/fragments/adminLayout.html :: head(~{::title},~{}, ~{})">
-    <title>Administration - Articles</title>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{}, ~{}, ~{::section})">
+<head>
+    <title> Gestion des Articles - USM Olivet TT</title>
 </head>
-
 <body>
 
-    <header th:replace="/fragments/adminLayout.html :: top"></header>
-
-    <section class="uk-section">
-        <div class="uk-container">
-            <h2 th:text="${article.id} ? 'Modifier l\'article' : 'Ajouter un article'"></h2>
-            <form class="uk-form-stacked" method="post" th:action="@{/admin/article/update}" th:object="${article}" enctype="multipart/form-data">
-                <input name="id" th:field="*{id}" type="hidden">
-                <fieldset class="uk-fieldset">
-                    <div class="uk-child-width-1-2@s" uk-grid>
-                        <div>
-                            <label class="uk-form-label" for="title">Titre *</label>
-                            <input class="uk-input" type="text" id="title" name="title" th:field="*{title}" placeholder="Résultat journée 3" required>
-                            <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
-                        </div>
-                        <div>
-                            <label class="uk-form-label" for="label">Label *</label>
-                            <input class="uk-input" type="text" id="label" name="label" th:field="*{label}" placeholder="Compétitions" required>
-                            <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('label')}" th:errors="*{label}"></span>
-                        </div>
+<section class="uk-section">
+    <div class="uk-container">
+        <h2 th:text="${article.id} ? 'Modifier l\'article' : 'Ajouter un article'"></h2>
+        <form class="uk-form-stacked" method="post" th:action="@{/admin/article/update}" th:object="${article}" enctype="multipart/form-data">
+            <input name="id" th:field="*{id}" type="hidden">
+            <fieldset class="uk-fieldset">
+                <div class="uk-child-width-1-2@s" uk-grid>
+                    <div>
+                        <label class="uk-form-label" for="title">Titre *</label>
+                        <input class="uk-input" type="text" id="title" name="title" th:field="*{title}" placeholder="Résultat journée 3" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
                     </div>
-                    <div class="uk-margin-medium">
-                        <div uk-form-custom="target: true">
-                            <label class="uk-form-label" for="picture">Image <span uk-icon="icon: cloud-upload"></span></label>
-                            <input type="file" name="picture" id="picture">
-                            <input class="uk-input uk-form-width-large" type="text" placeholder="Sélectionnez un fichier" disabled>
-                        </div>
+                    <div>
+                        <label class="uk-form-label" for="label">Label *</label>
+                        <input class="uk-input" type="text" id="label" name="label" th:field="*{label}" placeholder="Compétitions" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('label')}" th:errors="*{label}"></span>
                     </div>
-                    <div class="uk-margin-medium">
-                        <label class="uk-form-label" for="content">Contenu *</label>
-                        <textarea class="uk-textarea" rows="8" id="content" name="content" th:field="*{content}" required></textarea>
-                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+                </div>
+                <div class="uk-margin-medium">
+                    <div uk-form-custom="target: true">
+                        <label class="uk-form-label" for="picture">Image <span uk-icon="icon: cloud-upload"></span></label>
+                        <input type="file" name="picture" id="picture">
+                        <input class="uk-input uk-form-width-large" type="text" placeholder="Sélectionnez un fichier" disabled>
                     </div>
-                    <button class="uk-button uk-align-right uk-button-default">Envoyer</button>
-                </fieldset>
-            </form>
-        </div>
-    </section>
-
-    <div th:replace="/fragments/adminLayout.html :: script"></div>
+                </div>
+                <div class="uk-margin-medium">
+                    <label class="uk-form-label" for="content">Contenu *</label>
+                    <textarea class="uk-textarea" rows="8" id="content" name="content" th:field="*{content}" required></textarea>
+                    <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+                </div>
+                <button class="uk-button uk-align-right uk-button-default">Envoyer</button>
+            </fieldset>
+        </form>
+    </div>
+</section>
 
 </body>
 </html>

@@ -1,0 +1,9 @@
+.ol-header {
+    background-color: #0A0F1D;
+    position: relative;
+}
+
+.uk-cover-container > img {
+    height: 300px;
+    width: 300px;
+}

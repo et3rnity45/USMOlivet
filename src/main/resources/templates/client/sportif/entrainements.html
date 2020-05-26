@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/clientLayout.html :: head(~{::title},~{::link}, ~{::script}, ~{::main})">
+<head>
+    <title>Entrainements | USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/schedule/style.css">
+    <link rel="stylesheet" href="/css/entrainement.css">
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+</head>
+<body>
+
+<main>
+    <section class="uk-section uk-section-default uk-section-medium">
+        <div class="uk-container uk-container-large">
+            <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Planning des entraînements</h2>
+            <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
+                <div class="cd-schedule__timeline">
+                    <ul>
+                        <li><span>14:00</span></li>
+                        <li><span>14:30</span></li>
+                        <li><span>15:00</span></li>
+                        <li><span>15:30</span></li>
+                        <li><span>16:00</span></li>
+                        <li><span>16:30</span></li>
+                        <li><span>17:00</span></li>
+                        <li><span>17:30</span></li>
+                        <li><span>18:00</span></li>
+                        <li><span>18:30</span></li>
+                        <li><span>19:00</span></li>
+                        <li><span>19:30</span></li>
+                        <li><span>20:00</span></li>
+                        <li><span>20:30</span></li>
+                        <li><span>21:00</span></li>
+                        <li><span>21:30</span></li>
+                        <li><span>22:00</span></li>
+                        <li><span>22:30</span></li>
+                        <li><span>23:00</span></li>
+                    </ul>
+                </div>
+
+                <div class="cd-schedule__events">
+                    <ul>
+                        <li class="cd-schedule__group">
+                            <div class="cd-schedule__top-info"><span>Mardi</span></div>
+                            <ul>
+                                <li class="cd-schedule__event" th:each="schedule : ${schedules}" th:if="${schedule.day} == 'Mardi'">
+                                    <a th:data-start="${schedule.dataStart}" th:data-end="${schedule.dataEnd}"
+                                       th:data-content="${schedule.content}" th:data-position="${schedule.position}"
+                                       th:data-color="${schedule.color}" href="#0">
+                                        <em class="cd-schedule__name" th:text="${schedule.title}"></em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="cd-schedule__group">
+                            <div class="cd-schedule__top-info"><span>Mercredi</span></div>
+                            <ul>
+                                <li class="cd-schedule__event" th:each="schedule : ${schedules}" th:if="${schedule.day} == 'Mercredi'">
+                                    <a th:data-start="${schedule.dataStart}" th:data-end="${schedule.dataEnd}"
+                                       th:data-content="${schedule.content}" th:data-position="${schedule.position}"
+                                       th:data-color="${schedule.color}" href="#0">
+                                        <em class="cd-schedule__name" th:text="${schedule.title}"></em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="cd-schedule__group">
+                            <div class="cd-schedule__top-info"><span>Jeudi</span></div>
+                            <ul>
+                                <li class="cd-schedule__event" th:each="schedule : ${schedules}" th:if="${schedule.day} == 'Jeudi'">
+                                    <a th:data-start="${schedule.dataStart}" th:data-end="${schedule.dataEnd}"
+                                       th:data-content="${schedule.content}" th:data-position="${schedule.position}"
+                                       th:data-color="${schedule.color}" href="#0">
+                                        <em class="cd-schedule__name" th:text="${schedule.title}"></em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="cd-schedule__group">
+                            <div class="cd-schedule__top-info"><span>Vendredi</span></div>
+                            <ul>
+                                <li class="cd-schedule__event" th:each="schedule : ${schedules}" th:if="${schedule.day} == 'Vendredi'">
+                                    <a th:data-start="${schedule.dataStart}" th:data-end="${schedule.dataEnd}"
+                                       th:data-content="${schedule.content}" th:data-position="${schedule.position}"
+                                       th:data-color="${schedule.color}" href="#0">
+                                        <em class="cd-schedule__name" th:text="${schedule.title}"></em>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="cd-schedule-modal">
+                    <header class="cd-schedule-modal__header">
+                        <div class="cd-schedule-modal__content">
+                            <span class="cd-schedule-modal__date"></span>
+                            <h3 class="cd-schedule-modal__name"></h3>
+                        </div>
+
+                        <div class="cd-schedule-modal__header-bg"></div>
+                    </header>
+
+                    <div class="cd-schedule-modal__body">
+                        <div class="cd-schedule-modal__event-info"></div>
+                        <div class="cd-schedule-modal__body-bg"></div>
+                    </div>
+
+                    <a href="#0" class="cd-schedule-modal__close text-replace">Close</a>
+                </div>
+
+                <div class="cd-schedule__cover-layer"></div>
+            </div>
+            <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Nos Entraîneurs</h2>
+            <div>
+
+            </div>
+        </div>
+    </section>
+    <script src="/js/schedule/util.js"></script>
+    <script src="/js/schedule/main.js"></script>
+</main>
+</body>
+</html>
