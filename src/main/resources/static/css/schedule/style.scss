@@ -238,8 +238,7 @@ a {
     @include breakpoint(md) {
       position: absolute;
       z-index: 3;
-      width: calc(100% + 2px); // top position and height will be set using js
-      left: -1px;
+      width: calc(100% + 1px); // top position and height will be set using js
       max-width: none; // reset style
       margin-right: 0;
 

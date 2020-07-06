@@ -27,13 +27,13 @@ public class SportifController {
     @GetMapping("/sportif/stages")
     public String toStages(Model model) {
 
-        return "client/sportif/stages";
+        return "redirect:/articles#stage";
     }
 
-    @GetMapping("/sportif/compétitions")
+    @GetMapping("/sportif/competitions")
     public String toCompetitions(Model model) {
 
-        return "client/sportif/competitions";
+        return "redirect:/articles#competition";
     }
 
 }

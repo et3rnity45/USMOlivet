@@ -3,9 +3,9 @@ INSERT INTO `user` VALUES
 
 INSERT INTO `article` VALUES
 (1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue sed eleifend convallis. Mauris risus magna, faucibus ut augue non, volutpat faucibus dolor. Etiam ultrices porta massa id congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
- '2020-03-25 10:05:00', 'Compétition', '/uploads/img/article/refonte_du_site.webp', 'Refonte du site'),
+ '2020-03-25 10:05:00', 'competition', '/uploads/img/article/refonte_du_site.webp', 'Refonte du site'),
 (2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue sed eleifend convallis. Mauris risus magna, faucibus ut augue non, volutpat faucibus dolor. Etiam ultrices porta massa id congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
- '2020-03-26 13:46:00', 'Stage', '/uploads/img/article/test_article.webp', 'Test article');
+ '2020-03-26 13:46:00', 'stage', '/uploads/img/article/test_article.webp', 'Test article');
 
 INSERT INTO `sponsor` (id, name, picture_path, picture_path_bis, site_url) VALUES
 (1, "Olivet", '/uploads/img/sponsor/olivet.png', '/uploads/img/sponsor/olivet_bis.png', 'http://olivet.fr/fr'),
@@ -23,8 +23,8 @@ INSERT INTO `sponsor` (id, name, picture_path, picture_path_bis, site_url) VALUE
 (13, "SOCA 45", '/uploads/img/sponsor/soca_45.png', '/uploads/img/sponsor/soca_45_bis.png', 'http://www.soca-45.com/');
 
 INSERT INTO `trainer` (id, firstname, lastname, picture_path, informations) VALUES
-(1, "Guillaume", "le Guigner", "/uploads/img/entrainement/guillaume_le_guigner.jpg", "Infos"),
-(2, "Antoine", "Biston", "/uploads/img/entrainement/antoine_biston.jpg", "Infos");
+(1, "Guillaume", "le Guigner", "/uploads/img/entrainement/guillaume_le_guigner.png", "Infos"),
+(2, "Antoine", "Biston", "/uploads/img/entrainement/antoine_biston.png", "Infos");
 
 INSERT INTO `schedule` (id, title, day, data_start, data_end, content, position, color) VALUES
 (1, "Perfectionnement -9 | -11", "Mardi", "16:15", "18:00", "Contenu", "center", "#dbc248"),
