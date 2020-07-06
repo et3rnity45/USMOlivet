@@ -13,7 +13,7 @@
     <section class="uk-section uk-section-default uk-section-medium">
         <div class="uk-container uk-container-large">
             <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Planning des entraînements</h2>
-            <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
+            <div class="cd-schedule cd-schedule--loading uk-margin-large js-cd-schedule">
                 <div class="cd-schedule__timeline">
                     <ul>
                         <li><span>14:00</span></li>
@@ -115,9 +115,23 @@
 
                 <div class="cd-schedule__cover-layer"></div>
             </div>
+        </div>
+    </section>
+    <section class="uk-section uk-section-default uk-section-medium">
+        <div class="uk-container uk-container-large">
             <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Nos Entraîneurs</h2>
-            <div>
-
+            <div class="uk-child-width-1-2@m uk-margin-large" uk-grid>
+                <div th:each="trainer : ${trainers}" class="uk-flex uk-flex-center">
+                    <div class="uk-card uk-card-default trainerCard">
+                        <div class="uk-card-media-top">
+                            <img th:src="${trainer.picturePath}" th:alt="|${trainer.firstname} ${trainer.lastname}|" uk-img>
+                        </div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title" th:text="|${trainer.firstname} ${trainer.lastname}|">John Doe</h3>
+                            <p th:text="${trainer.informations}">Text.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

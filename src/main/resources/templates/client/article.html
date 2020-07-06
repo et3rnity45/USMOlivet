@@ -8,9 +8,20 @@
 <body>
 
 <main>
-    <section class="uk-section uk-section-default uk-section-large">
-        <div class="uk-container uk-container-large">
-            
+    <section class="uk-section uk-section-default uk-section-medium">
+        <div class="uk-container">
+            <article class="uk-article">
+                <img class="article-media" th:src="${article.picturePath}" th:alt="${article.title}" uk-img/>
+                <div class="article-content">
+                    <p class="uk-article-meta">
+                        Posté le
+                        <span th:text="${#dates.format(article.date, 'dd MMM yyyy')}">01 Janv. 2000</span>
+                    </p>
+                    <h1 class="uk-article-title" th:text="${article.title}">Titre de l'article</h1>
+                    <div class="content" th:text="${article.content}">
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 </main>

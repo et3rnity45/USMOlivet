@@ -58,8 +58,10 @@
 
 	ScheduleTemplate.prototype.resetEventsStyle = function() {
 		// remove js style applied to the single events
-		for(var i = 0; i < this.singleEvents.length; i++) {
+		for(let i = 0; i < this.singleEvents.length; i++) {
+			var color = this.singleEvents[i].getElementsByTagName('a')[0].getAttribute('data-color');
 			this.singleEvents[i].removeAttribute('style');
+			this.singleEvents[i].setAttribute('style', 'background-color: ' + color + ";");
 		}
 	};
 
@@ -77,9 +79,9 @@
 				eventHeight = slotHeight*duration/self.timelineUnitDuration;
 
 			if (anchor.getAttribute('data-position') == 'left') {
-				this.singleEvents[i].setAttribute('style', 'top: '+(eventTop-1)+'px; height: '+(eventHeight +1)+'px; width: calc(50% + 2px); background-color: ' + color);
+				this.singleEvents[i].setAttribute('style', 'top: '+(eventTop-1)+'px; height: '+(eventHeight +1)+'px; width: calc(50% + 1px); background-color: ' + color);
 			} else if (anchor.getAttribute('data-position') == 'right') {
-				this.singleEvents[i].setAttribute('style', 'top: '+(eventTop-1)+'px; height: '+(eventHeight +1)+'px; width: calc(50% + 2px); left: 50%; background-color: ' + color);
+				this.singleEvents[i].setAttribute('style', 'top: '+(eventTop-1)+'px; height: '+(eventHeight +1)+'px; width: calc(50% + 1px); left: 50%; background-color: ' + color);
 			} else {
 				this.singleEvents[i].setAttribute('style', 'top: '+(eventTop-1)+'px; height: '+(eventHeight +1)+'px; background-color: ' + color);
 			}
@@ -90,7 +92,13 @@
 
 	ScheduleTemplate.prototype.initEvents = function() {
 		var self = this;
-		for(var i = 0; i < this.singleEvents.length; i++) {
+		var mq = self.mq();
+		for(let i = 0; i < this.singleEvents.length; i++) {
+
+			if( mq == 'mobile' ) {
+				let color = this.singleEvents[i].getElementsByTagName('a')[0].getAttribute('data-color');
+				this.singleEvents[i].setAttribute('style', 'background-color: ' + color + ";");
+			}
 			// open modal when user selects an event
 			this.singleEvents[i].addEventListener('click', function(event){
 				event.preventDefault();
@@ -116,7 +124,7 @@
 		//update event name and time
 		this.modalEventName.textContent = target.getElementsByTagName('em')[0].textContent;
 		this.modalDate.textContent = target.getAttribute('data-start')+' - '+target.getAttribute('data-end');
-		this.modal.setAttribute('data-event', target.getAttribute('data-event'));
+		this.modalHeaderBg.setAttribute('style', 'background-color: ' + target.getAttribute('data-color'));
 
 		//update event content
 		this.loadEventContent(target.getAttribute('data-content'));

@@ -17,12 +17,12 @@
                         <div class="uk-grid-small uk-grid-divider uk-child-width-auto" uk-grid>
                             <div>
                                 <ul class="uk-subnav uk-subnav-pill" uk-margin>
-                                    <li class="uk-active" uk-filter-control><a href="#">Tous</a></li>
+                                    <li id="defaultFilter" class="uk-active" uk-filter-control><a href="#">Tous</a></li>
                                 </ul>
                             </div>
                             <div>
-                                <ul class="uk-subnav uk-subnav-pill" uk-margin>
-                                    <li uk-filter-control="[data-label='compétition']"><a href="#">Compétition</a></li>
+                                <ul id="filter-bar" class="uk-subnav uk-subnav-pill" uk-margin>
+                                    <li uk-filter-control="[data-label='competition']"><a href="#">Compétition</a></li>
                                     <li uk-filter-control="[data-label='stage']"><a href="#">Stage</a></li>
                                     <li uk-filter-control="[data-label='autre']"><a href="#">Autres</a></li>
                                 </ul>
@@ -55,7 +55,22 @@
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event){
+            let hash = document.location.hash.substr(1);
 
+            if ( hash !== "" ) {
+                const filter = document.querySelector('.article-filter');
+                const filterBar = document.querySelector('#filter-bar');
+                const activeFilter = document.querySelector('li[uk-filter-control="[data-label=\'' + hash + '\']"]');
+                document.getElementById('defaultFilter').classList.remove('uk-active');
+                UIkit.filter( filterBar, {
+                    target: filter,
+                    selActive: activeFilter,
+                });
+            }
+        });
+    </script>
 </main>
 
 </body>

@@ -1,0 +1,29 @@
+.ol-header {
+    background-color: #0A0F1D;
+    position: relative;
+}
+
+.uk-section-default {
+    background-color: #F7F8F8;
+}
+
+
+article {
+    background-color: #ffffff;
+}
+
+.article-media {
+    width: 100%;
+    height: auto;
+}
+
+.article-content {
+    position: relative;
+    padding: 30px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.uk-article-title {
+    margin-top: 0;
+}
