@@ -5,8 +5,8 @@ echo "installing ..."
 # 2 - create a user :
 	#sudo useradd usmo
 	#sudo passwd usmo
-	#sudo chown usmo:usmo usmo-app.jar
-  #sudo chmod 500 usmo-app.jar
+	#sudo chown usmo:usmo usmolivet-0.0.1-SNAPSHOT.jar
+  #sudo chmod 500 usmolivet-0.0.1-SNAPSHOT.jar
 
 # 3 - put the JAR, usmo.sh and install.sh at /home/usmo/
 # 4 - create database :

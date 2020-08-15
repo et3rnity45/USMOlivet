@@ -21,15 +21,12 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-public class AdminTrainingController {
+public class AdminTrainerController {
 
     private String DIR = "entrainement";
 
     @Autowired
     private TrainerRepository trainerRepository;
-
-    @Autowired
-    private ScheduleRepository scheduleRepository;
 
     @Autowired
     private FileUpload fileUpload;
@@ -43,8 +40,7 @@ public class AdminTrainingController {
     @GetMapping("/admin/trainer")
     private String toList(Model model) {
         model.addAttribute("trainers", trainerRepository.findAll());
-        model.addAttribute("schedule", scheduleRepository.findById((long) 1).get());
-        return "/admin/adminTraining";
+        return "admin/adminTrainer";
     }
 
     @GetMapping("/admin/trainer/update")

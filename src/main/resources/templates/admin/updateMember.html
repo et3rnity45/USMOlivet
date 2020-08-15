@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{}, ~{}, ~{::section})">
 <head>
-    <title> Gestion des Entraineurs - USM Olivet TT</title>
+    <title> Gestion des Membres du bureau - USM Olivet TT</title>
 </head>
 <body>
 
 <section class="uk-section">
     <div class="uk-container">
-        <h2 th:text="${trainer.id} ? 'Modifier l\'entraineur' : 'Ajouter un entraineur'"></h2>
-        <form class="uk-form-stacked" method="post" th:action="@{/admin/trainer/update}" th:object="${trainer}" enctype="multipart/form-data">
+        <h2 th:text="${member.id} ? 'Modifier le membre' : 'Ajouter un membre'"></h2>
+        <form class="uk-form-stacked" method="post" th:action="@{/admin/member/update}" th:object="${member}" enctype="multipart/form-data">
             <input name="id" th:field="*{id}" type="hidden">
             <fieldset class="uk-fieldset">
                 <div class="uk-child-width-1-2@s" uk-grid>
@@ -22,6 +22,11 @@
                         <input class="uk-input" type="text" id="lastname" name="lastname" th:field="*{lastname}" required>
                         <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
                     </div>
+                    <div>
+                        <label class="uk-form-label" for="role">Rôle *</label>
+                        <input class="uk-input" type="text" id="role" name="role" th:field="*{role}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></span>
+                    </div>
                 </div>
                 <div class="uk-margin-medium">
                     <div uk-form-custom="target: true">
@@ -29,11 +34,6 @@
                         <input type="file" name="picture" id="picture">
                         <input class="uk-input uk-form-width-large" type="text" placeholder="Sélectionnez un fichier" disabled>
                     </div>
-                </div>
-                <div class="uk-margin-medium">
-                    <label class="uk-form-label" for="informations">Informations supplémentaires *</label>
-                    <textarea class="uk-textarea" rows="8" id="informations" name="informations" th:field="*{informations}" required></textarea>
-                    <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('informations')}" th:errors="*{informations}"></span>
                 </div>
                 <button class="uk-button uk-align-right uk-button-default">Envoyer</button>
             </fieldset>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{}, ~{}, ~{::section})">
+<head>
+    <title> Gestion des Entrainements - USM Olivet TT</title>
+</head>
+<body>
+
+<section class="uk-section">
+    <div class="uk-container">
+        <h2 th:text="${schedule.id} ? 'Modifier l\'entrainement' : 'Ajouter un entrainement'"></h2>
+        <form class="uk-form-stacked" method="post" th:action="@{/admin/schedule/update}" th:object="${schedule}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <fieldset class="uk-fieldset">
+                <div class="uk-child-width-1-2@s" uk-grid>
+                    <div>
+                        <label class="uk-form-label" for="title">Titre *</label>
+                        <input class="uk-input" type="text" id="title" name="title" th:field="*{title}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="day">Jour *</label>
+                        <select class="uk-select" id="day" name="day" th:field="*{day}">
+                            <option value="Mardi">Mardi</option>
+                            <option value="Mercredi">Mercredi</option>
+                            <option value="Jeudi">Jeudi</option>
+                            <option value="Vendredi">Vendredi</option>
+                        </select>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('day')}" th:errors="*{day}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="dataStart">Heure de début *</label>
+                        <input class="uk-input" type="time" id="dataStart" name="dataStart" th:field="*{dataStart}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('dataStart')}" th:errors="*{dataStart}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="dataEnd">Heure de fin *</label>
+                        <input class="uk-input" type="time" id="dataEnd" name="dataEnd" th:field="*{dataEnd}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('dataEnd')}" th:errors="*{dataEnd}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="color">Couleur *</label>
+                        <input class="uk-input" type="color" id="color" name="color" th:field="*{color}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="position">Position *</label>
+                        <select class="uk-select" id="position" name="position" th:field="*{position}">
+                            <option value="center">Centre</option>
+                            <option value="left">Gauche</option>
+                            <option value="right">Droite</option>
+                        </select>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></span>
+                    </div>
+                </div>
+                <div class="uk-margin-medium">
+                    <label class="uk-form-label" for="content">Description *</label>
+                    <textarea class="uk-textarea" rows="6" id="content" name="content" th:field="*{content}" required></textarea>
+                    <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+                </div>
+            </fieldset>
+            <div class="uk-align-right">
+                <a class="uk-button uk-button-danger" th:if="${schedule.id}" th:href="@{|/admin/schedule/delete/${schedule.id}|}" onclick="return confirm('Supprimer cet entrainement ?')">Supprimer</a>
+                <button class="uk-button uk-button-default">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

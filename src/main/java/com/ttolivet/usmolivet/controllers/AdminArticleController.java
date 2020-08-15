@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -37,7 +38,7 @@ public class AdminArticleController {
 
     @GetMapping("/admin/article")
     public String toList(Model model) {
-        model.addAttribute("articles", repo.findAll());
+        model.addAttribute("articles", repo.findAllByOrderByDateDesc());
         return "admin/adminArticle";
     }
 
@@ -74,8 +75,11 @@ public class AdminArticleController {
 
         Long id = article.getId();
         String path = "";
+        Date date = new Date();
         if (id != null) {
             path = repo.findById(id).get().getPicturePath();
+            date = repo.findById(id).get().getDate();
+
         }
         if (!pictureFile.isEmpty()) {
             String fileName = article.getTitle().replaceAll(" ", "_").toLowerCase();
@@ -83,6 +87,7 @@ public class AdminArticleController {
         }
 
         article.setPicturePath(path);
+        article.setDate(date);
         repo.save(article);
 
         if (id != null) {

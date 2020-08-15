@@ -29,7 +29,7 @@
                 <td><a th:href="${sponsor.siteUrl}" target="_blank" th:text="${sponsor.siteUrl}"></a></td>
                 <td>
                     <a th:href="@{/admin/sponsor/update(id=${sponsor.id})}" uk-icon="icon: pencil" class="uk-margin-small-right"></a>
-                    <a th:href="@{|/admin/sponsor/delete/${sponsor.id}|}" uk-icon="icon: trash"></a>
+                    <a th:href="@{|/admin/sponsor/delete/${sponsor.id}|}" uk-icon="icon: trash" onclick="return confirm('Supprimer ce partenaire ?')"></a>
                 </td>
             </tr>
             </tbody>

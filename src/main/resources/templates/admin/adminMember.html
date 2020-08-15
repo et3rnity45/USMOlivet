@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{::link}, ~{}, ~{::section})">
+<head>
+    <title>Gestion des Membres du bureau - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/adminTable.css">
+</head>
+<body>
+
+<section class="uk-section">
+    <div class="uk-container uk-margin-medium">
+        <h2>Gestion des Membres du bureau</h2>
+        <a class="uk-flex uk-flex-middle" th:href="@{/admin/member/update}">
+            <span class="uk-margin-small-right" uk-icon="icon: plus; ratio: 0.7"></span>
+            Ajouter un Entraineur
+        </a>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Rôle</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member : ${members}">
+                <td th:text="${member.firstname}"></td>
+                <td th:text="${member.lastname}"></td>
+                <td th:text="${member.role}"></td>
+                <td><img th:src="${member.picturePath}" th:alt="|Photo ${member.firstname} ${member.lastname}|" /></td>
+                <td>
+                    <a th:href="@{/admin/member/update(id=${member.id})}" uk-icon="icon: pencil" class="uk-margin-small-right"></a>
+                    <a th:href="@{|/admin/member/delete/${member.id}|}" uk-icon="icon: trash" onclick="return confirm('Supprimer ce membre ?')"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+</body>
+</html>

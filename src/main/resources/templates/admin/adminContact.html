@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{}, ~{}, ~{::section})">
+<head>
+    <title> Informations du club - USM Olivet TT</title>
+</head>
+<body>
+
+<section class="uk-section">
+    <div class="uk-container">
+        <h2>Modifier les informations du Club</h2>
+        <form class="uk-form-stacked" method="post" th:action="@{/admin/contact}" th:object="${contact}">
+            <input name="id" th:field="*{id}" type="hidden">
+            <fieldset class="uk-fieldset">
+                <h3>Coordonnées</h3>
+                <div class="uk-child-width-1-2@s" uk-grid>
+                    <div>
+                        <label class="uk-form-label" for="mail">Mail *</label>
+                        <input class="uk-input" type="email" id="mail" name="mail" th:field="*{mail}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="phone">Téléphone *</label>
+                        <input class="uk-input" type="tel" id="phone" name="phone" th:field="*{phone}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="address">Adresse *</label>
+                        <input class="uk-input" type="text" id="address" name="address" th:field="*{address}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+                    </div>
+                </div>
+                <h3>Réseaux Sociaux</h3>
+                <div class="uk-child-width-1-2@s" uk-grid>
+                    <div>
+                        <label class="uk-form-label" for="facebookLink">Lien Facebook *</label>
+                        <input class="uk-input" type="text" id="facebookLink" name="facebookLink" th:field="*{facebookLink}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('facebookLink')}" th:errors="*{facebookLink}"></span>
+                    </div>
+                    <div>
+                        <label class="uk-form-label" for="youtubeLink">Lien Youtube *</label>
+                        <input class="uk-input" type="text" id="youtubeLink" name="youtubeLink" th:field="*{youtubeLink}" required>
+                        <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('youtubeLink')}" th:errors="*{youtubeLink}"></span>
+                    </div>
+                </div>
+                <button class="uk-button uk-align-right uk-button-default">Envoyer</button>
+            </fieldset>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

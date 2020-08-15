@@ -1,5 +1,5 @@
 INSERT INTO `user` VALUES
-(1, 'admin@gmail.com', '$2a$10$KMlIdTThJPcd5chekN60TuWOs2EQWUsAkHO/DDKUAi8Y.G0fkm7hm', 'ADMIN', 'admin');
+(1, 'admin@gmail.com', '$2y$10$iN00ugXH/VevLMsrIeAaSuyceoMDP9Dywi.yb7MsGTRgv4/Cus40K', 'ADMIN', 'Admin');
 
 INSERT INTO `article` VALUES
 (1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue sed eleifend convallis. Mauris risus magna, faucibus ut augue non, volutpat faucibus dolor. Etiam ultrices porta massa id congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -16,7 +16,7 @@ INSERT INTO `sponsor` (id, name, picture_path, picture_path_bis, site_url) VALUE
 (6, "Covifruit", '/uploads/img/sponsor/covifruit.png', '/uploads/img/sponsor/covifruit_bis.png', 'https://www.covifruit.com/'),
 (7, "La Boucherie", '/uploads/img/sponsor/la_boucherie.png', '/uploads/img/sponsor/la_boucherie_bis.png', 'https://www.la-boucherie.fr/'),
 (8, "ADA Réseaux", '/uploads/img/sponsor/ada_réseaux.png', '/uploads/img/sponsor/ada_réseaux_bis.png', 'https://www.ada-reseaux.fr/'),
-(9, "Bozkurt", '/uploads/img/sponsor/bozkurt.png', '/uploads/img/sponsor/bozkurt_bis.png', ''),
+(9, "Bozkurt", '/uploads/img/sponsor/bozkurt.png', '/uploads/img/sponsor/bozkurt_bis.png', 'http://bozkurt.fr/'),
 (10, "ProtexSSI", '/uploads/img/sponsor/protexssi.png', '/uploads/img/sponsor/protexssi_bis.png', 'https://www.protexssi.fr/'),
 (11, "Avisofi", '/uploads/img/sponsor/avisofi.png', '/uploads/img/sponsor/avisofi_bis.png', 'https://avisofi-credit-immobilier.fr/'),
 (12, "VDL Conseil", '/uploads/img/sponsor/vdl_conseil.png', '/uploads/img/sponsor/vdl_conseil_bis.png', 'http://www.vdlconseil.fr/'),
@@ -45,12 +45,11 @@ INSERT INTO `schedule` (id, title, day, data_start, data_end, content, position,
 
 
 INSERT INTO `member` (id, firstname, lastname, role, picture_path) VALUES
-(1, "Fabien", "Gasnier", "Président du club", "/uploads/img/staff/fabien_gasnier.jpg"),
-(2, "Fabien", "Gasnier", "Président du club", "/uploads/img/staff/fabien_gasnier.jpg"),
-(3, "Fabien", "Gasnier", "Président du club", "/uploads/img/staff/fabien_gasnier.jpg"),
-(4, "Fabien", "Gasnier", "Président du club", "/uploads/img/staff/fabien_gasnier.jpg"),
-(5, "Fabien", "Gasnier", "Président du club", "/uploads/img/staff/fabien_gasnier.jpg"),
-(6, "Fabien", "Gasnier", "Président du club", "/uploads/img/staff/fabien_gasnier.jpg");
+(1, "Fabien", "Gasnier", "Président du club", "/uploads/img/staff/fabien_gasnier.jpg");
 
 INSERT INTO `contact` (id, mail, phone, address, facebook_link, youtube_link) VALUES
 (1, "usmo.tennisdetable@wanadoo.fr", "02 38 66 86 88", "199 Rue des Cireries, 45160 Olivet", "https://www.facebook.com/usmolivetennisdetable/", "#");
+
+INSERT INTO `inscription` (id, year, is_active, sheet_path) VALUES
+(1, 2019, false, "/uploads/pdf/inscription-2019-2020.pdf"),
+(2, 2020, true, "/uploads/pdf/inscription-2020-2021.pdf");

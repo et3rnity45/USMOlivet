@@ -18,7 +18,7 @@
                         <span th:text="${#dates.format(article.date, 'dd MMM yyyy')}">01 Janv. 2000</span>
                     </p>
                     <h1 class="uk-article-title" th:text="${article.title}">Titre de l'article</h1>
-                    <div class="content" th:text="${article.content}">
+                    <div class="content" th:utext="${article.content}">
                     </div>
                 </div>
             </article>

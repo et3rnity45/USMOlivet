@@ -65,7 +65,7 @@
                     <div class="uk-navbar-right">
                         <ul class="uk-navbar-nav">
                             <li class="uk-active"><a href="/" class="nav-link">Accueil</a></li>
-                            <li><a class="nav-link" href="/inscription">Inscription 2020/2021</a></li>
+                            <li><a th:href="${inscription.sheetPath}" th:text="|Inscription ${inscription.year}/${inscription.year + 1}|">Inscription 2020/2021</a></li>
                             <li class="uk-parent">
                                 <a class="nav-link">Le Club</a>
                                 <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-justify">
@@ -134,7 +134,7 @@
                 <div>
                     <ul class="uk-nav-parent-icon uk-nav-primary uk-nav-center" uk-nav>
                         <li class="uk-active"><a href="/">Accueil</a></li>
-                        <li><a href="/inscription">Inscription 2020/2021</a></li>
+                        <li><a th:href="${inscription.sheetPath}" th:text="|Inscription ${inscription.year}/${inscription.year + 1}|">Inscription 2020/2021</a></li>
                         <li class="uk-parent">
                             <a href="#">Club</a>
                             <ul class="uk-nav-sub">

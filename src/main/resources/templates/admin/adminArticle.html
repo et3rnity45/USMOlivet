@@ -19,19 +19,19 @@
                 <th>Titre</th>
                 <th>Label</th>
                 <th>Image</th>
-                <th>Contenu</th>
+                <th>Date</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="article : ${articles}">
                 <td th:text="${article.title}"></td>
-                <td th:text="${article.label}"></td>
+                <td th:text="${#strings.toUpperCase(article.label)}"></td>
                 <td><img th:src="${article.picturePath}" th:alt="|Visuel article : ${article.title}|" /></td>
-                <td th:text="${#strings.abbreviate(article.content, 25)}"></td>
+                <td th:text="${#dates.format(article.date, 'dd MMM yyyy')}"></td>
                 <td>
                     <a th:href="@{/admin/article/update(id=${article.id})}" uk-icon="icon: pencil" class="uk-margin-small-right"></a>
-                    <a th:href="@{|/admin/article/delete/${article.id}|}" uk-icon="icon: trash"></a>
+                    <a th:href="@{|/admin/article/delete/${article.id}|}" uk-icon="icon: trash" onclick="return confirm('Supprimer cet article ?')"></a>
                 </td>
             </tr>
             </tbody>

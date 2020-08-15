@@ -129,3 +129,8 @@
 .uk-background-primary {
     background-color: #ff4652;
 }
+
+/* CK EDITOR */
+.ck-editor__editable_inline {
+    min-height: 400px;
+}

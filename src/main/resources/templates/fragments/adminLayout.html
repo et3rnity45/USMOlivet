@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, links, scripts, content)">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:fragment="layout(title, links, scripts, content)">
 <head>
     <!-- METAS -->
     <meta charset="UTF-8">
@@ -43,20 +43,21 @@
     </div>
     <div class="left-content-box content-box-dark">
         <img src="/img/svg/user.svg" alt="Account" class="uk-border-circle profile-img">
-        <h4 class="uk-text-center uk-margin-remove-vertical text-light">Quentin Liger</h4>
+        <h4 class="uk-text-center uk-margin-remove-vertical text-light" sec:authentication="name">User</h4>
     </div>
 
     <div class="left-nav-wrap">
         <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-            <li class="uk-nav-header">ACTIONS</li>
+            <li class="uk-nav-header">CATEGORIES</li>
             <li><a href="/admin/user"><span data-uk-icon="icon: users" class="uk-margin-small-right"></span>Utilisateurs</a></li>
             <li><a href="/admin/article"><span data-uk-icon="icon: comment" class="uk-margin-small-right"></span>Articles</a></li>
             <li><a href="/admin/sponsor"><span data-uk-icon="icon: social" class="uk-margin-small-right"></span>Partenaires</a></li>
+            <li><a href="/admin/member"><span data-uk-icon="icon: location" class="uk-margin-small-right"></span>Bureau</a></li>
+            <li><a href="/admin/contact"><span data-uk-icon="icon: list" class="uk-margin-small-right"></span>Informations du Club</a></li>
             <li class="uk-parent"><a href="#"><span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Sportif</a>
                 <ul class="uk-nav-sub">
-                    <li><a title="Entrainement" href="/admin/trainer">Entrainement</a></li>
-                    <li><a title="Stages" href="#">Stages</a></li>
-                    <li><a title="Compétitions" href="#">Compétitions</a></li>
+                    <li><a title="Entrainement" href="/admin/schedule">Entrainements</a></li>
+                    <li><a title="Entraineurs" href="/admin/trainer">Entraineurs</a></li>
                 </ul>
             </li>
         </ul>

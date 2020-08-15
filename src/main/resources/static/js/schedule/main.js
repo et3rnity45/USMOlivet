@@ -310,6 +310,7 @@
 		// load the content of an event when user selects it
 		const self = this;
 
+		self.modal.getElementsByClassName('cd-schedule-modal__event-info')[0].innerHTML = "";
 		self.modal.getElementsByClassName('cd-schedule-modal__event-info')[0].appendChild(self.getEventContent(content));
 		Util.addClass(self.modal, 'cd-schedule-modal--content-loaded');
 
@@ -318,7 +319,7 @@
 	ScheduleTemplate.prototype.getEventContent = function(string) {
 		// reset the loaded event content so that it can be inserted in the modal
 		const div = document.createElement('div');
-		div.innerHTML = string;
+		div.innerHTML = string.trim();
 		return div;
 	};
 

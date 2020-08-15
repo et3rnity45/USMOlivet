@@ -12,7 +12,7 @@ public class Schedule {
     private Long id;
 
     @NotBlank(message = "Veuillez entrer un titre !")
-    @Size(max = 70, message = "Le titre est trop long (70 caractères max)")
+    @Size(max = 100, message = "Le titre est trop long (100 caractères max)")
     private String title;
 
     private String day;

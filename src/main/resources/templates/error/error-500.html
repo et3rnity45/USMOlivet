@@ -2,7 +2,7 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org"
       th:replace="fragments/clientLayout.html :: head(~{::title},~{::link}, ~{}, ~{::main})">
 <head>
-    <title>404 - USM Olivet TT</title>
+    <title>500 - USM Olivet TT</title>
     <link rel="stylesheet" href="/css/error.css">
 </head>
 <body>
@@ -13,7 +13,10 @@
             <div class="errorMessage uk-text-center uk-border-rounded">
                 <h2>500 Server Error</h2>
                 <p>Problème lors de l'envoi d'une requête au serveur</p>
-                <p><a onclick="history.go(-1)">Revenir au site</a></p>
+                <p>
+                    <a class="uk-margin-right" href="/">Revenir à l'accueil</a>
+                    <a onclick="history.go(-1)">Revenir en arrière</a>
+                </p>
             </div>
         </div>
     </section>

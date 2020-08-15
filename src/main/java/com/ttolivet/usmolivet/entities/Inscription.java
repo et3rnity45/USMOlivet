@@ -16,6 +16,8 @@ public class Inscription {
 
     private int year;
 
+    private boolean isActive;
+
     public Inscription() {
     }
 
@@ -41,5 +43,13 @@ public class Inscription {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }
