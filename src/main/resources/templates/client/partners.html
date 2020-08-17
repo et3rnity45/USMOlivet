@@ -13,12 +13,7 @@
             <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Nos Partenaires</h2>
             <div class="divSponsor uk-margin-large">
                 <a class="cadreImg uk-flex uk-flex-center uk-flex-middle" th:each="sponsor,iter : ${sponsors}" th:href="${sponsor.siteUrl}" target="_blank">
-                    <img th:if="${iter.index % 8 == 0 || iter.index % 8 == 2 || iter.index % 8 == 5 || iter.index % 8 == 7}"
-                         th:src="${sponsor.picturePath}"
-                         th:alt="${sponsor.name}"
-                         class="imgSponsor"/>
-                    <img th:if="${iter.index % 8 == 1 || iter.index % 8 == 3 || iter.index % 8 == 4 || iter.index % 8 == 6}"
-                         th:src="${sponsor.picturePathBis}"
+                    <img th:src="${sponsor.picturePathBis}"
                          th:alt="${sponsor.name}"
                          class="imgSponsor"/>
                 </a>

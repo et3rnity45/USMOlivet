@@ -11,7 +11,7 @@
         <form class="uk-form-stacked" method="post" th:action="@{/admin/sponsor/update}" th:object="${sponsor}" enctype="multipart/form-data">
             <input name="id" th:field="*{id}" type="hidden">
             <fieldset class="uk-fieldset">
-                <div class="uk-child-width-1-2@s" uk-grid>
+                <div class="uk-margin-medium uk-child-width-1-2@s" uk-grid>
                     <div>
                         <label class="uk-form-label" for="name">Sponsor *</label>
                         <input class="uk-input" type="text" id="name" name="name" th:field="*{name}" placeholder="Ville d'Olivet" required>
@@ -22,11 +22,14 @@
                         <input class="uk-input" type="text" id="siteUrl" name="siteUrl" th:field="*{siteUrl}" placeholder="https://..." required>
                         <span class="uk-text-danger uk-text-small" th:if="${#fields.hasErrors('siteUrl')}" th:errors="*{siteUrl}"></span>
                     </div>
-                </div>
-                <div class="uk-margin-medium">
                     <div uk-form-custom="target: true">
                         <label class="uk-form-label" for="picture">Logo <span uk-icon="icon: cloud-upload"></span></label>
                         <input type="file" name="picture" id="picture">
+                        <input class="uk-input uk-form-width-large" type="text" placeholder="Sélectionnez un fichier" disabled>
+                    </div>
+                    <div uk-form-custom="target: true">
+                        <label class="uk-form-label" for="pictureBis">Logo <span uk-icon="icon: cloud-upload"></span></label>
+                        <input type="file" name="pictureBis" id="pictureBis">
                         <input class="uk-input uk-form-width-large" type="text" placeholder="Sélectionnez un fichier" disabled>
                     </div>
                 </div>

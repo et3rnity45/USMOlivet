@@ -15,11 +15,11 @@ public class Article {
     private Long id;
 
     @NotBlank(message = "Veuillez entrer un titre !")
-    @Size(max = 30, message = "Le titre est trop long (30 caractères max)")
+    @Size(max = 80, message = "Le titre est trop long (80 caractères max)")
     private String title;
 
     @NotBlank(message = "Veuillez entrer un label !")
-    @Size(max = 15, message = "Le label est trop long (15 caractères max)")
+    @Size(max = 30, message = "Le label est trop long (30 caractères max)")
     private String label;
 
     private String picturePath;
@@ -28,7 +28,7 @@ public class Article {
 
     @NotBlank(message = "Veuillez entrer du contenu !")
     @Column(columnDefinition = "TEXT")
-    private String content;
+    private String content = "Rédigez-ici ...";
 
     public Article() {}
 

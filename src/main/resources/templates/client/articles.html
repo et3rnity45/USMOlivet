@@ -44,7 +44,7 @@
                             </div>
                             <div class="uk-card-body uk-margin-remove-first-child">
                                 <h3 class="uk-h5 uk-margin-top uk-margin-remove-bottom" th:text="${article.title}">Title</h3>
-                                <div class="uk-text-meta uk-margin-small-top" th:text="${#strings.abbreviate(article.content, 100)}"></div>
+                                <div class="uk-text-meta uk-margin-small-top" th:utext="${#strings.abbreviate(article.content, 100)}"></div>
                             </div>
                             <div class="uk-card-footer">
                                 <span class="uk-float-left uk-text-muted" th:text="${#dates.format(article.date, 'dd MMM yyyy')}">01 Jan. 2020</span>

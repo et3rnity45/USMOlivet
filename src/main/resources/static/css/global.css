@@ -38,6 +38,11 @@ a, a:hover {
     color: inherit;
 }
 
+a:focus {
+    outline: dotted thin;
+    outline-offset: -2px;
+}
+
 /***** Headings *****/
 
 h1 {

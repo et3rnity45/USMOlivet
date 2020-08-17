@@ -18,6 +18,10 @@
     margin-top: 0px;
 }
 
+.uk-navbar-center:not(:only-child) {
+    z-index: 3;
+}
+
 .nav-logo {
     height: 64px;
 }

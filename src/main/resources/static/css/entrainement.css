@@ -10,3 +10,15 @@
 .trainerCard {
     max-width: 400px;
 }
+
+.trainerCard .uk-card-body .uk-card-title {
+    margin: 0 0 10px 0;
+}
+
+.trainerCard .uk-card-body em {
+    font-size: 12px;
+}
+
+.trainerCard .uk-card-body p {
+    margin-top: 0px;
+}

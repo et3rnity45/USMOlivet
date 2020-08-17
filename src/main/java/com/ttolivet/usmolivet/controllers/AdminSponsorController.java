@@ -64,6 +64,7 @@ public class AdminSponsorController {
     public String update(@Valid Sponsor sponsor,
                          BindingResult result,
                          @RequestParam (name = "picture", required = false) MultipartFile pictureFile,
+                         @RequestParam (name = "pictureBis", required = false) MultipartFile pictureFileBis,
                          RedirectAttributes redirect,
                          Model model) {
 
@@ -75,15 +76,22 @@ public class AdminSponsorController {
 
         Long id = sponsor.getId();
         String path = "";
+        String pathBis = "";
         if (id != null) {
             path = repo.findById(id).get().getPicturePath();
+            pathBis = repo.findById(id).get().getPicturePathBis();
         }
         if (!pictureFile.isEmpty()) {
             String fileName = sponsor.getName().replaceAll(" ", "_").toLowerCase();
             path = fileUpload.writeFile(pictureFile, DIR, fileName);
         }
+        if (!pictureFileBis.isEmpty()) {
+            String fileName = sponsor.getName().replaceAll(" ", "_").toLowerCase() + "_bis";
+            pathBis = fileUpload.writeFile(pictureFileBis, DIR, fileName);
+        }
 
         sponsor.setPicturePath(path);
+        sponsor.setPicturePathBis(pathBis);
         repo.save(sponsor);
 
         if (id != null) {

@@ -23,7 +23,7 @@
                             <img src="/img/svg/gym.svg" height="60" width="60" uk-svg>
                             <h2 class="uk-h4 uk-margin-top uk-margin-remove-bottom">Entrainements</h2>
                             <div class="uk-panel uk-margin-top">
-                                Lorem ipsum dolor sit amet, consetetur adipscing elitr, sed  do eirmod tempor
+                                Renseignez vous sur les différents créneaux d'entraînements mis à votre disposition par le club
                             </div>
                         </a>
                     </div>
@@ -32,7 +32,7 @@
                             <img src="/img/svg/ping-pong.svg" height="60" width="60" uk-svg>
                             <h2 class="uk-h4 uk-margin-top uk-margin-remove-bottom">Stages</h2>
                             <div class="uk-panel uk-margin-top">
-                                Lorem ipsum dolor sit amet, consetetur adipscing elitr, sed  do eirmod tempor
+                                Découvrez les stages proposés par le club pour occuper les enfants durant les vacances
                             </div>
                         </a>
                     </div>
@@ -41,7 +41,7 @@
                             <img src="/img/svg/trophy.svg" height="60" width="60" uk-svg>
                             <h2 class="uk-h4 uk-margin-top uk-margin-remove-bottom">Compétitions</h2>
                             <div class="uk-panel uk-margin-top">
-                                Lorem ipsum dolor sit amet, consetetur adipscing elitr, sed  do eirmod tempor
+                                Consultez les annonces et les résultats des différentes compétitions auquelles le club participe
                             </div>
                         </a>
                     </div>
@@ -65,7 +65,7 @@
                 <div class="card-content">
                     <div class="uk-card-body">
                         <h3 class="uk-card-title" th:text="${articles[0].title}">Title</h3>
-                        <p th:text="${#strings.abbreviate(articles[0].content, 400)}">Text</p>
+                        <p th:utext="${#strings.abbreviate(articles[0].content, 200)}">Text</p>
                     </div>
                     <div class="uk-card-footer">
                         <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[0].date, 'dd MMM yyyy')}">01 Jan. 2020</span>
@@ -88,7 +88,7 @@
                 <div class="card-content">
                     <div class="uk-card-body">
                         <h3 class="uk-card-title" th:text="${articles[1].title}">Title</h3>
-                        <p th:text="${#strings.abbreviate(articles[1].content, 400)}">Text</p>
+                        <p th:utext="${#strings.abbreviate(articles[1].content, 200)}">Text</p>
                     </div>
                     <div class="uk-card-footer">
                         <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[1].date, 'dd MMM yyyy')}">01 Jan. 2020</span>

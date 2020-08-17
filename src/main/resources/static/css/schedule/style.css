@@ -240,11 +240,11 @@ ul {
     -moz-osx-font-smoothing: grayscale;
 }
 .cd-schedule__name, .cd-schedule-modal__name {
-    font-size: var(--text-lg);
+    font-size: var(--text-sm);
 }
 @media (min-width: 64rem) {
     .cd-schedule__name, .cd-schedule-modal__name {
-        font-size: calc(var(--text-sm)*1.2);
+        font-size: calc(var(--text-xs)*1.2);
     }
 }
 .cd-schedule-modal__date, .cd-schedule__event a::before {
