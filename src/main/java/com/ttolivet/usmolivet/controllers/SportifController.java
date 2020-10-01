@@ -1,7 +1,7 @@
 package com.ttolivet.usmolivet.controllers;
 
-import com.ttolivet.usmolivet.repositories.ScheduleRepository;
-import com.ttolivet.usmolivet.repositories.TrainerRepository;
+import com.ttolivet.usmolivet.repositories.*;
+import com.ttolivet.usmolivet.services.ConnectApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +16,17 @@ public class SportifController {
     @Autowired
     private ScheduleRepository scheduleRepository;
 
+    @Autowired
+    private PlayerRepository playerRepository;
+
+    @Autowired
+    private PouleRepository pouleRepository;
+
     @GetMapping("/sportif/entrainements")
     public String toEntrainement(Model model) {
-
         model.addAttribute("schedules", scheduleRepository.findAll());
         model.addAttribute("trainers", trainerRepository.findAll());
+
         return "client/sportif/entrainements";
     }
 
@@ -34,6 +40,20 @@ public class SportifController {
     public String toCompetitions(Model model) {
 
         return "redirect:/articles#competition";
+    }
+
+    @GetMapping("/sportif/classement")
+    public String toClassement(Model model) {
+        model.addAttribute("players", playerRepository.findAllByOrderByPointsDesc());
+
+        return "client/sportif/classement";
+    }
+
+    @GetMapping("/sportif/equipes")
+    public String toTeams(Model model) {
+        model.addAttribute("poules", pouleRepository.findAll());
+
+        return "client/sportif/equipes";
     }
 
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{::link}, ~{}, ~{::section})">
+<head>
+    <title>Gestion des Equipes - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/adminTable.css">
+</head>
+<body>
+
+<section class="uk-section">
+    <div class="uk-container uk-margin-medium">
+        <h2>Liste des Equipes</h2>
+        <form class="uk-margin-medium" method="post" th:action="@{/admin/team}">
+            <button type="submit" class="uk-flex uk-flex-middle uk-button uk-button-default">
+                <span class="uk-margin-small-right" uk-icon="icon: refresh; ratio: 0.7"></span>
+                Mettre à jour
+            </button>
+        </form>
+        <ul class="uk-subnav uk-subnav-pill uk-margin-medium uk-flex-center" uk-switcher>
+            <li th:each="poule,iter : ${poules}" ><a href="#" th:text="|Equipe ${iter.count}|"></a></li>
+        </ul>
+        <ul class="uk-switcher uk-margin">
+            <li th:each="poule,iter : ${poules}">
+                <h3 class="uk-heading-line uk-text-center uk-text-uppercase"><span th:text="${poule.divisionWording}"></span></h3>
+                <table class="uk-table uk-table-striped">
+                    <thead>
+                    <tr>
+                        <th class="uk-table-shrink">#</th>
+                        <th>Équipe</th>
+                        <th>Points</th>
+                        <th uk-tooltip="Parties Jouées">Joué</th>
+                        <th uk-tooltip="Victoires">V</th>
+                        <th uk-tooltip="Nuls">N</th>
+                        <th uk-tooltip="Défaites">D</th>
+                        <th uk-tooltip="Forfait/Pénalités">FF/P</th>
+                        <th uk-tooltip="Parties Gagnées">PG</th>
+                        <th uk-tooltip="Parties Perdues">PP</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:class="${#strings.contains(team.name, 'OLIVET')} ? 'uk-text-bold' : ''" th:each="team : ${poule.teams}">
+                        <td th:text="${team.classement}"></td>
+                        <td th:text="${team.name}"></td>
+                        <td th:text="${team.points}"></td>
+                        <td th:text="${team.rencontres}"></td>
+                        <td th:text="${team.win}"></td>
+                        <td th:text="${team.draw}"></td>
+                        <td th:text="${team.lose}"></td>
+                        <td th:text="${team.penalities}"></td>
+                        <td th:text="${team.winEncounter}"></td>
+                        <td th:text="${team.loseEncounter}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+    </div>
+</section>
+
+</body>
+</html>

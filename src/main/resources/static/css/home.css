@@ -1,15 +1,24 @@
+/*** Header ***/
+
+.ol-header {
+    background-color: transparent;
+}
+
 /*** Section Bannière ***/
 
 .secBanner {
     background-color: #0A0F1D;
+    position: relative;
+    top: -80px;
+    margin-bottom: -80px;
 }
 
 .divBanner {
-    background-image: url("/uploads/img/backgrounds/banner-tt.webp");
+    background-image: url("/uploads/img/backgrounds/banner-tt.jpg");
     background-position: center center;
     background-color: #0A0F1D;
     background-size: cover;
-    height: 100vh;
+    height: 80vh;
 }
 
 /***** Title *****/
@@ -37,13 +46,6 @@ h1 {
 
 
 /*** Section Discover ***/
-
-.secDiscover {
-    background-image:  url("/img/backgrounds/bg-losange.png");
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-}
 
 .uk-tile {
     transition: all 500ms;
@@ -83,6 +85,10 @@ h2 {
     justify-content: space-between;
 }
 
+.uk-cover-container a img {
+    background-color: #0a0f1d;
+}
+
 
 /*** MEDIA QUERIES ***/
 
@@ -90,6 +96,11 @@ h2 {
 
     .divBanner {
         height: 400px;
+    }
+
+    .secBanner {
+        top: unset;
+        margin-bottom: 0;
     }
 
 }

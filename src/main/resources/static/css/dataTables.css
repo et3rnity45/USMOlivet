@@ -1,0 +1,13 @@
+#playerTable2_wrapper .row .uk-width-1-2 {
+    width: unset;
+    text-align: left;
+    margin: 8px 0px;
+}
+
+#playerTable2_wrapper .row .uk-width-3-5 {
+    width: unset;
+}
+
+#playerTable2_wrapper .row .uk-width-2-5 {
+    display: none;
+}

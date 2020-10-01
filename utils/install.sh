@@ -10,7 +10,7 @@ echo "installing ..."
 
 # 3 - put the JAR, usmo.sh and install.sh at /home/usmo/
 # 4 - create database :
-  # mysql -u root
+  # mysql -u root -p
   # CREATE DATABASE usmolivet;
   # GRANT ALL PRIVILEGES ON usmolivet.* TO 'usmolivet_user'@'localhost' IDENTIFIED BY 'JHE6Ysu!XcdZQ2BZ';
 

@@ -1,9 +1,14 @@
 /***** HEADER *****/
 .ol-header {
-    position: absolute;
+    position: relative;
+    background-color: #0a0f1d;
     top: 0;
     z-index: 10;
     width: 100%;
+}
+
+.ol-header-mobile .uk-navbar-container .uk-navbar {
+    box-shadow: 2px 15px 50px rgba(41,44,61,.1);
 }
 
 .uk-navbar-container:not(.uk-navbar-transparent) {
@@ -74,6 +79,14 @@ footer {
 .logoPartners {
     max-height: 75px;
     max-width: 130px;
+}
+
+.copyright {
+    color: #999;
+}
+
+.copyright a:hover {
+    color: #666;
 }
 
 @media only screen and (max-width: 959px) {

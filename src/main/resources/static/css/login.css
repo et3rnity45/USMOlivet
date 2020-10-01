@@ -3,15 +3,6 @@
     color: #fff;
 }
 
-.secPartners, hr {
-    display: none;
-}
-
-.ol-header {
-    background-color: #0A0F1D;
-    position: relative;
-}
-
 section {
     height: calc(100vh - 80px - 142px);
 }

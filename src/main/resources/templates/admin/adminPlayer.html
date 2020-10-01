@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/adminLayout.html :: layout(~{::title}, ~{::link}, ~{::script}, ~{::section})">
+<head>
+    <title>Gestion du Classement - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/adminTable.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.uikit.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.uikit.min.js"></script>
+</head>
+<body>
+
+<section class="uk-section">
+    <div class="uk-container uk-margin-medium">
+        <h2>Liste des joueurs du club</h2>
+        <form class="uk-margin-medium" method="post" th:action="@{/admin/player}">
+            <button type="submit" class="uk-flex uk-flex-middle uk-button uk-button-default">
+                <span class="uk-margin-small-right" uk-icon="icon: refresh; ratio: 0.7"></span>
+                Mettre à jour
+            </button>
+        </form>
+        <table id="playerTable" class="uk-table uk-table-striped uk-table-hover">
+            <thead>
+            <tr>
+                <th class="uk-table-shrink">Rang club</th>
+                <th>NOM Prénom</th>
+                <th>Points Officiels</th>
+                <th>Classement Officiel</th>
+                <th>Points Mensuels</th>
+                <th class="uk-table-shrink">Evolution Mensuelle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="player, iter : ${players}">
+                <td th:text="${iter.count}"></td>
+                <td th:text="|${player.lastname} ${player.firstname}|"></td>
+                <td th:text="${player.pointsOfficiels}"></td>
+                <td th:text="${player.classementOfficiel}"></td>
+                <td th:text="${player.points}"></td>
+                <td th:if="${player.points - player.pointsOfficiels} < 0" th:text="${player.points - player.pointsOfficiels}" class="classementDown"></td>
+                <td th:unless="${player.points - player.pointsOfficiels} < 0" th:text="'+' + ${player.points - player.pointsOfficiels}" class="classementUp"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function() {
+        $('#playerTable').DataTable( {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            },
+            "columnDefs": [ {
+                "targets": [2, 3, 4],
+                "orderable": false
+            } ]
+        } );
+    } );
+</script>
+
+</body>
+</html>

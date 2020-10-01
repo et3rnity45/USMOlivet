@@ -14,7 +14,63 @@
         </div>
     </section>
 
-    <section class="uk-section">
+    <section class="uk-section secNews">
+        <div class="uk-container uk-container-large">
+            <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Actualité du Club</h2>
+            <hr class="uk-margin-medium">
+            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@m uk-margin" uk-grid uk-scrollspy="cls: uk-animation-slide-left; offset-top: -200;">
+                <div class="uk-cover-container uk-card-media-left">
+                    <a th:href="@{|/article/${articles[0].id}|}">
+                        <div class="uk-card-badge uk-label" th:text="${articles[0].label}">Label</div>
+                        <img class="lazyload" th:data-src="${articles[0].picturePath}" th:alt="${articles[0].title}" uk-cover>
+                        <canvas width="600" height="400"></canvas>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title" th:text="${articles[0].title}">Title</h3>
+                        <p th:utext="${#strings.abbreviate(articles[0].content, 200)}">Text</p>
+                    </div>
+                    <div class="uk-card-footer">
+                        <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[0].date, 'dd MMM yyyy')}">01 Jan. 2020</span>
+                        <a class="uk-float-right uk-button uk-button-text" th:href="@{|/article/${articles[0].id}|}">
+                            Lire la suite
+                            <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@m uk-margin" uk-scrollspy="cls: uk-animation-slide-right; offset-top: -200;" uk-grid>
+                <div class="uk-cover-container uk-card-media-right uk-flex-last@m">
+                    <a th:href="@{|/article/${articles[1].id}|}">
+                        <div class="uk-card-badge uk-label" th:text="${articles[1].label}">Label</div>
+                        <img class="lazyload" th:data-src="${articles[1].picturePath}" th:alt="${articles[1].title}" uk-cover>
+                        <canvas width="600" height="400"></canvas>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title" th:text="${articles[1].title}">Title</h3>
+                        <p th:utext="${#strings.abbreviate(articles[1].content, 200)}">Text</p>
+                    </div>
+                    <div class="uk-card-footer">
+                        <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[1].date, 'dd MMM yyyy')}">01 Jan. 2020</span>
+                        <a class="uk-float-right uk-button uk-button-text" th:href="@{|/article/${articles[1].id}|}">
+                            Lire la suite
+                            <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a class="uk-align-right uk-button uk-button-text" href="/articles">
+                Voir plus d'actualités
+                <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
+            </a>
+        </div>
+    </section>
+
+    <section class="uk-section secDiscover">
         <div class="uk-container uk-container-xlarge">
             <div class="uk-margin uk-text-center">
                 <div class="uk-child-width-1-1 uk-child-width-1-3@m uk-grid-medium uk-grid-match" uk-grid>
@@ -47,62 +103,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="uk-section secNews">
-        <div class="uk-container uk-container-large">
-            <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Actualité du Club</h2>
-            <hr class="uk-margin-medium">
-            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@m uk-margin" uk-grid uk-scrollspy="cls: uk-animation-slide-left; offset-top: -200;">
-                <div class="uk-cover-container uk-card-media-left">
-                    <a th:href="@{|/article/${articles[0].id}|}">
-                        <div class="uk-card-badge uk-label" th:text="${articles[0].label}">Label</div>
-                        <img th:src="${articles[0].picturePath}" th:alt="|Visuel article: ${articles[0].title}|" uk-cover>
-                        <canvas width="600" height="400"></canvas>
-                    </a>
-                </div>
-                <div class="card-content">
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title" th:text="${articles[0].title}">Title</h3>
-                        <p th:utext="${#strings.abbreviate(articles[0].content, 200)}">Text</p>
-                    </div>
-                    <div class="uk-card-footer">
-                        <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[0].date, 'dd MMM yyyy')}">01 Jan. 2020</span>
-                        <a class="uk-float-right uk-button uk-button-text" th:href="@{|/article/${articles[0].id}|}">
-                            Lire la suite
-                            <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@m uk-margin" uk-scrollspy="cls: uk-animation-slide-right; offset-top: -200;" uk-grid>
-                <div class="uk-cover-container uk-card-media-right uk-flex-last@m">
-                    <a th:href="@{|/article/${articles[1].id}|}">
-                        <div class="uk-card-badge uk-label" th:text="${articles[1].label}">Label</div>
-                        <img th:src="${articles[1].picturePath}" th:alt="${articles[1].title}" uk-cover>
-                        <canvas width="600" height="400"></canvas>
-                    </a>
-                </div>
-                <div class="card-content">
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title" th:text="${articles[1].title}">Title</h3>
-                        <p th:utext="${#strings.abbreviate(articles[1].content, 200)}">Text</p>
-                    </div>
-                    <div class="uk-card-footer">
-                        <span class="uk-float-left uk-text-muted" th:text="${#dates.format(articles[1].date, 'dd MMM yyyy')}">01 Jan. 2020</span>
-                        <a class="uk-float-right uk-button uk-button-text" th:href="@{|/article/${articles[1].id}|}">
-                            Lire la suite
-                            <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a class="uk-align-right uk-button uk-button-text" href="/articles">
-                Voir plus d'actualités
-                <span class="uk-margin-small-left" uk-icon="arrow-right"></span>
-            </a>
         </div>
     </section>
 </main>

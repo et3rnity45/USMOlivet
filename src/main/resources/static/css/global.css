@@ -43,6 +43,14 @@ a:focus {
     outline-offset: -2px;
 }
 
+.uk-tab > .uk-active > a {
+    border-color: #ff4652;
+}
+
+.uk-subnav-pill > .uk-active > a {
+    background-color: #ff4652;
+}
+
 /***** Headings *****/
 
 h1 {
@@ -54,19 +62,6 @@ h1 {
 .uk-heading-bullet::before {
     margin-right: calc(3px + .2em);
     border-left: calc(3px + .1em) solid #ff4652;
-}
-
-/***** Header *****/
-
-.ol-header {
-    position: relative;
-}
-
-.ol-header-overlay {
-    position: absolute;
-    z-index: 100;
-    left: 0;
-    right: 0;
 }
 
 /***** ALERTS *****/
@@ -87,4 +82,15 @@ h1 {
 
     animation-delay: 0s, 4s;
     -webkit-animation-delay: 0s, 4s;
+}
+
+/***** LAZYLOAD *****/
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+}
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 200ms;
 }

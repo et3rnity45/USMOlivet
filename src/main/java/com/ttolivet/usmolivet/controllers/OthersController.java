@@ -21,11 +21,6 @@ public class OthersController {
         return "client/others/cgu";
     }
 
-    @GetMapping("/privacy")
-    public String toPrivacy() {
-        return "/client/others/privacy";
-    }
-
     @GetMapping("/contact")
     public String toContact(Model model) {
         model.addAttribute("contact", contactRepository.findById((long) 1).get());

@@ -117,14 +117,14 @@
             </div>
         </div>
     </section>
-    <section class="uk-section uk-section-default uk-section-medium">
+    <section class="uk-section uk-section-default uk-section-medium secTrainer">
         <div class="uk-container uk-container-large">
             <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Nos Entraîneurs</h2>
             <div class="uk-child-width-1-2@m uk-margin-large" uk-grid>
                 <div th:each="trainer : ${trainers}" class="uk-flex uk-flex-center">
                     <div class="uk-card uk-card-default trainerCard">
                         <div class="uk-card-media-top">
-                            <img th:src="${trainer.picturePath}" th:alt="|${trainer.firstname} ${trainer.lastname}|" uk-img>
+                            <img class="lazyload" th:data-src="${trainer.picturePath}" th:alt="|${trainer.firstname} ${trainer.lastname}|" uk-img>
                         </div>
                         <div class="uk-card-body">
                             <h3 class="uk-card-title" th:text="|${trainer.firstname} ${trainer.lastname}|">John Doe</h3>

@@ -25,8 +25,8 @@
             </thead>
             <tbody>
             <tr th:each="member : ${members}">
-                <td th:text="${member.firstname}"></td>
                 <td th:text="${member.lastname}"></td>
+                <td th:text="${member.firstname}"></td>
                 <td th:text="${member.role}"></td>
                 <td><img th:src="${member.picturePath}" th:alt="|Photo ${member.firstname} ${member.lastname}|" /></td>
                 <td>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/clientLayout.html :: head(~{::title}, ~{::link}, ~{::script}, ~{::main})">
+<head>
+    <title>Classement du club - USM Olivet TT</title>
+    <link rel="stylesheet" href="/css/adminTable.css">
+    <link rel="stylesheet" href="/css/dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.uikit.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.uikit.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            if (screen && screen.width > 480) {
+                $('#playerTable').DataTable({
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                    },
+                    "lengthMenu": [15, 25, 50, 100],
+                    "pageLength": 15,
+                    "columnDefs": [{
+                        "targets": [2, 3, 4],
+                        "orderable": false
+                    }]
+                });
+            } else {
+                $('#playerTable2').DataTable({
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                    },
+                    "lengthMenu": [15, 25, 50, 100],
+                    "pageLength": 15,
+                    "ordering": false
+                });
+            }
+        } );
+    </script>
+</head>
+<body>
+
+<main>
+    <section class="uk-section uk-section-default uk-section-medium">
+        <div class="uk-container uk-container-large">
+            <h2 class="uk-heading-small uk-heading-bullet uk-margin-medium" uk-scrollspy="cls: uk-animation-slide-bottom-small">Classement du Club</h2>
+            <table id="playerTable" class="uk-table uk-table-striped uk-table-hover uk-visible@s">
+                <thead>
+                <tr>
+                    <th class="uk-table-shrink">Rang club</th>
+                    <th>NOM Prénom</th>
+                    <th>Points Officiels</th>
+                    <th>Classement Officiel</th>
+                    <th>Points Mensuels</th>
+                    <th class="uk-table-shrink">Evolution Mensuelle</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="player, iter : ${players}">
+                    <td th:text="${iter.count}"></td>
+                    <td th:text="|${player.lastname} ${player.firstname}|"></td>
+                    <td th:text="${player.pointsOfficiels}"></td>
+                    <td th:text="${player.classementOfficiel}"></td>
+                    <td th:text="${player.points}"></td>
+                    <td th:if="${player.points - player.pointsOfficiels} < 0" th:text="${player.points - player.pointsOfficiels}" class="classementDown"></td>
+                    <td th:unless="${player.points - player.pointsOfficiels} < 0" th:text="'+' + ${player.points - player.pointsOfficiels}" class="classementUp"></td>
+                </tr>
+                </tbody>
+            </table>
+            <table id="playerTable2" class="uk-table uk-table-striped uk-table-hover uk-hidden@s">
+                <thead>
+                <tr>
+                    <th class="uk-table-shrink">Rang club</th>
+                    <th>NOM Prénom</th>
+                    <th>Points Off.</th>
+                    <th>Points Mens.</th>
+                    <th class="uk-table-shrink">Evol. Mens.</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="player, iter : ${players}">
+                    <td th:text="${iter.count}"></td>
+                    <td th:text="|${player.lastname} ${player.firstname}|"></td>
+                    <td th:text="${player.pointsOfficiels}"></td>
+                    <td th:text="${player.points}"></td>
+                    <td th:if="${player.points - player.pointsOfficiels} < 0" th:text="${player.points - player.pointsOfficiels}" class="classementDown"></td>
+                    <td th:unless="${player.points - player.pointsOfficiels} < 0" th:text="'+' + ${player.points - player.pointsOfficiels}" class="classementUp"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

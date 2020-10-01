@@ -1,14 +1,12 @@
-.ol-header {
-    background-color: #0A0F1D;
-    position: relative;
-}
-
 .uk-card {
+    display: flex;
+    flex-wrap: wrap;
     border-radius: 8px;
 }
 
 .uk-card-media-top, img {
     border-radius: 8px 8px 0 0;
+    background-color: #0a0f1d;
 }
 
 .uk-card-badge {
@@ -22,4 +20,8 @@
 
 .uk-subnav-pill > .uk-active > a {
     background-color: #ff4652;
+}
+
+.uk-card-footer {
+    width: 100%;
 }

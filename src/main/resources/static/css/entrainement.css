@@ -1,10 +1,9 @@
-.ol-header {
-    background-color: #0A0F1D;
-    position: relative;
-}
-
 *, ::after, ::before {
     box-sizing: border-box;
+}
+
+.secTrainer {
+    background-color: #F4F4F4;
 }
 
 .trainerCard {
@@ -21,4 +20,8 @@
 
 .trainerCard .uk-card-body p {
     margin-top: 0px;
+}
+
+.trainerCard img {
+    background-color: #0a0f1d;
 }

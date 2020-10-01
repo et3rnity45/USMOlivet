@@ -1,11 +1,9 @@
 package com.ttolivet.usmolivet.repositories;
 
-import com.ttolivet.usmolivet.entities.User;
+import com.ttolivet.usmolivet.entities.Poule;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface PouleRepository extends JpaRepository<Poule, Long> {
 }

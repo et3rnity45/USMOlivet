@@ -7,3 +7,25 @@ img {
     max-height: unset;
     height: auto;
 }
+
+.uk-table-hover tbody tr:hover, .uk-table-hover > tr:hover {
+    background-color: rgba(255, 70, 82, 0.7);
+}
+
+.classementDown {
+    color: red;
+}
+
+.classementUp {
+    color: green;
+}
+
+@media only screen and (max-width: 640px) {
+    table {
+        font-size: 12px;
+    }
+
+    .uk-table th {
+        font-size: unset;
+    }
+}

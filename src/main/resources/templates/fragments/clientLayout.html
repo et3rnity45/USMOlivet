@@ -6,9 +6,15 @@
     <!-- METAS -->
     <meta charset="UTF-8">
     <title th:replace="${title}">USM Olivet TT</title>
-    <!-- Meta -->
-    <meta content="Site de l'USM Olivet TT" name="description">
+    <!-- Metas -->
+    <meta content="USM Olivet Tennis de Table , club situé dans la banlieue Orléanaise (45) Club fondé en 1982. Première équipe évoluant actuellement en Nationale 2." name="description">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="www.olivet-tt.fr" property='og:site_name'>
+    <meta content="Olivet TT - Site de la section Tennis de Table d'Olivet" property='og:title'>
+    <meta content="USM Olivet Tennis de Table , club situé dans la banlieue Orléanaise (45) Club fondé en 1982. Première équipe évoluant actuellement en Nationale 2." property='og:description'>
+    <meta content='https://olivet-tt.fr/uploads/img/backgrounds/banner-tt.webp' property='og:image'>
+    <meta content="Logo d'Olivet Tennis de Table" property='og:image:alt'>
+    <meta content='website' property='og:type'>
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#ff4652">
     <!-- Windows Phone -->
@@ -19,15 +25,25 @@
     <!-- UI KIT + FONT AWESOME -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
-    <!-- UI KIT Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
     <!-- FONT FAMILY -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,900&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,400,700&display=swap">
     <!-- CSS -->
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/layout.css">
+    <!-- LazyLoad Images -->
+    <script src="/js/lazysizes.min.js" async=""></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176076726-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-176076726-1');
+    </script>
+
+    <!-- Blocks -->
     <th:block th:replace="${links}" />
     <th:block th:replace="${scripts}" />
 </head>
@@ -65,7 +81,7 @@
                     <div class="uk-navbar-right">
                         <ul class="uk-navbar-nav">
                             <li class="uk-active"><a href="/" class="nav-link">Accueil</a></li>
-                            <li><a th:href="${inscription.sheetPath}" th:text="|Inscription ${inscription.year}/${inscription.year + 1}|">Inscription 2020/2021</a></li>
+                            <li><a class="nav-link" th:href="@{/inscription}">Inscription 2020/2021</a></li>
                             <li class="uk-parent">
                                 <a class="nav-link">Le Club</a>
                                 <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-justify">
@@ -83,7 +99,8 @@
                                         <li><a href="/sportif/entrainements">Entrainements</a></li>
                                         <li><a href="/sportif/stages">Stages</a></li>
                                         <li><a href="/sportif/competitions">Compétitions</a></li>
-                                        <li><a href="http://www.fftt.com/site/structures/usm-olivet-tennis-de-table-3882" target="_blank">Classements</a></li>
+                                        <li><a href="/sportif/classement">Classement</a></li>
+                                        <li><a href="/sportif/equipes">Équipes</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -107,22 +124,18 @@
             <h2 class="uk-heading-small uk-text-center uk-margin-large-bottom">Nos Partenaires</h2>
             <div class="uk-flex uk-flex-center uk-flex-middle uk-flex-wrap">
                 <a href="/partenaires" th:each="sponsor : ${sponsors}" class="uk-padding">
-                    <img class="logoPartners" th:src="${sponsor.picturePath}" th:alt="|Logo ${sponsor.name}|" />
+                    <img class="logoPartners lazyload" th:data-src="${sponsor.picturePath}" th:alt="|Logo ${sponsor.name}|" />
                 </a>
             </div>
         </div>
     </div>
     <hr>
     <div class="uk-container uk-container-expand uk-flex uk-flex-middle uk-flex-center">
-        <div>
-            <nav uk-navbar>
-                <ul class="uk-navbar-nav uk-flex uk-flex-wrap uk-flex-center">
-                    <li><a href="/privacy">Politique de confidentialité</a></li>
-                    <li><a href="/cgu">Conditions d'utilisation</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-            <p class="uk-text-center">© 2020, USM Olivet TT. Tous droits réservés</p>
+        <div class="uk-padding-small copyright">
+            <p class="uk-text-center">
+                © 2020, USM Olivet TT. Tous droits réservés.
+                <a class="uk-margin-small-left" href="/cgu">Conditions d'utilisation</a>
+            </p>
         </div>
     </div>
 </footer>
@@ -134,7 +147,7 @@
                 <div>
                     <ul class="uk-nav-parent-icon uk-nav-primary uk-nav-center" uk-nav>
                         <li class="uk-active"><a href="/">Accueil</a></li>
-                        <li><a th:href="${inscription.sheetPath}" th:text="|Inscription ${inscription.year}/${inscription.year + 1}|">Inscription 2020/2021</a></li>
+                        <li><a class="nav-link" th:href="@{/inscription}">Inscription 2020/2021</a></li>
                         <li class="uk-parent">
                             <a href="#">Club</a>
                             <ul class="uk-nav-sub">
@@ -149,7 +162,8 @@
                                 <li><a href="/sportif/entrainements">Entrainements</a></li>
                                 <li><a href="/sportif/stages">Stages</a></li>
                                 <li><a href="/sportif/competitions">Compétitions</a></li>
-                                <li><a href="http://www.fftt.com/site/structures/usm-olivet-tennis-de-table-3882" target="_blank">Classements</a></li>
+                                <li><a href="/sportif/classement">Classement</a></li>
+                                <li><a href="/sportif/equipes">Équipes</a></li>
                             </ul>
                         </li>
                         <li><a href="/partenaires">Partenaires</a></li>
@@ -161,6 +175,9 @@
     </div>
 </div>
 
+<!-- UI KIT Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
 <!--/*@thymesVar id="success" type="java"*/-->
 <script th:if="${success}">
     /*<![CDATA[*/

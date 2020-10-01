@@ -12,10 +12,8 @@
         <div class="uk-container uk-container-large">
             <h2 class="uk-heading-small uk-heading-bullet" uk-scrollspy="cls: uk-animation-slide-bottom-small">Nos Partenaires</h2>
             <div class="divSponsor uk-margin-large">
-                <a class="cadreImg uk-flex uk-flex-center uk-flex-middle" th:each="sponsor,iter : ${sponsors}" th:href="${sponsor.siteUrl}" target="_blank">
-                    <img th:src="${sponsor.picturePathBis}"
-                         th:alt="${sponsor.name}"
-                         class="imgSponsor"/>
+                <a class="cadreImg uk-flex uk-flex-center uk-flex-middle" th:each="sponsor,iter : ${sponsors}" th:href="${sponsor.siteUrl}" target="_blank" rel="noreferrer">
+                    <img class="imgSponsor lazyload" th:data-src="${sponsor.picturePathBis}" th:alt="${sponsor.name}"/>
                 </a>
             </div>
         </div>
