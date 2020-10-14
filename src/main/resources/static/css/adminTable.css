@@ -27,5 +27,14 @@ img {
 
     .uk-table th {
         font-size: unset;
+        padding: 16px 6px;
+    }
+
+    .uk-table td {
+        padding: 16px 6px;
+    }
+
+    .uk-pagination > * > * {
+        padding: 5px 7px;
     }
 }

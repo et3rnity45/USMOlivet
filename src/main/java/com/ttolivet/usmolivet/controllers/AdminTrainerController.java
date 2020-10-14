@@ -1,12 +1,9 @@
 package com.ttolivet.usmolivet.controllers;
 
-import com.ttolivet.usmolivet.entities.Schedule;
 import com.ttolivet.usmolivet.entities.Trainer;
-import com.ttolivet.usmolivet.repositories.ScheduleRepository;
 import com.ttolivet.usmolivet.repositories.TrainerRepository;
 import com.ttolivet.usmolivet.services.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,12 +27,6 @@ public class AdminTrainerController {
 
     @Autowired
     private FileUpload fileUpload;
-
-    @Value("${app.uploads.dir}")
-    private String uploads;
-
-    @Autowired
-    private String baseDir;
 
     @GetMapping("/admin/trainer")
     private String toList(Model model) {

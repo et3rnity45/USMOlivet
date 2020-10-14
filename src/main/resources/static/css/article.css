@@ -2,15 +2,19 @@
     background-color: #F7F8F8;
 }
 
+.uk-section .uk-container {
+    max-width: 1000px;
+}
 
 article {
     background-color: #ffffff;
 }
 
 .article-media {
-    width: 100%;
-    height: auto;
-    background-color: #0a0f1d;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .article-content {

@@ -11,7 +11,9 @@
     <section class="uk-section uk-section-default uk-section-medium">
         <div class="uk-container">
             <article class="uk-article">
-                <img class="article-media lazyload" th:data-src="${article.picturePath}" th:alt="${article.title}" uk-img/>
+                <figure class="article-media">
+                    <img class="lazyload" th:data-src="${article.picturePath}" th:alt="${article.title}" uk-img/>
+                </figure>
                 <div class="article-content">
                     <p class="uk-article-meta">
                         Posté le

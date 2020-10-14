@@ -31,7 +31,7 @@ public class Player {
     @JsonProperty("clglob")
     private int classementGlobal;
     @JsonProperty("point")
-    private int points;
+    private double points;
     @JsonProperty("aclglob")
     private int ancienClassementGlobal;
     @JsonProperty("apoint")
@@ -123,11 +123,11 @@ public class Player {
         this.classementGlobal = classementGlobal;
     }
 
-    public int getPoints() {
+    public double getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(double points) {
         this.points = points;
     }
 

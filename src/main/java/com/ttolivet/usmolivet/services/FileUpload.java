@@ -50,11 +50,4 @@ public class FileUpload {
             e.printStackTrace();
         }
     }
-
-    public String replaceFile(String file, String dir, String defaultImage) {
-        if (!file.contains(defaultImage)){
-            deleteFile(file);
-        }
-        return File.separator + uploadDir + File.separator + pictureDir + File.separator + dir + File.separator + defaultImage;
-    }
 }

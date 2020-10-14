@@ -4,7 +4,6 @@ import com.ttolivet.usmolivet.entities.Article;
 import com.ttolivet.usmolivet.repositories.ArticleRepository;
 import com.ttolivet.usmolivet.services.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,12 +28,6 @@ public class AdminArticleController {
 
     @Autowired
     private FileUpload fileUpload;
-
-    @Value("${app.uploads.dir}")
-    private String uploads;
-
-    @Autowired
-    private String baseDir;
 
     @GetMapping("/admin/article")
     public String toList(Model model) {
